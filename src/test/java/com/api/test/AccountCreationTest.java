@@ -12,7 +12,7 @@ public class AccountCreationTest {
 	@Test(description = "Verify signup of user")
 	public void AccountCreationTesting() {
 
-		SignUpRequest signUpRequest = new SignUpRequest.Builder().userName("yawafr").Email("yawfard@gmail.com").Password("56756453@E#$")
+		SignUpRequest signUpRequest = new SignUpRequest.Builder().userName("yawafrh").Email("yajwfard@gmail.com").Password("56756453@E#$")
 				.FirstName("sffdf").LastName("sffdf").MobileNumber("9897654365").build();
 
 		AuthService authService = new AuthService();

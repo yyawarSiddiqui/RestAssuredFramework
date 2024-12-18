@@ -12,8 +12,6 @@ public class LoginAPITest {
 	@Test(description = "Verify if login page is working", groups = { "Smoke" })
 	public void loginTest() {
 
-		
-
 		RequestSpecification SpecificationofRequest = given().baseUri("http://64.227.160.186:8080/");
 
 		RequestSpecification SpecificationofRequest2 = SpecificationofRequest.header("Content-Type",

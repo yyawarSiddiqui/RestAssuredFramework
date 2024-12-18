@@ -1,5 +1,6 @@
 package com.api.test;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.base.AuthService;
@@ -8,6 +9,7 @@ import com.api.models.response.LoginResponse;
 
 import io.restassured.response.Response;
 
+@Listeners(com.api.listeners.TestListeners.class)
 public class LoginAPITest2 {
 
 	@Test(description = "Verify if login page is working", groups = { "Smoke" })
@@ -19,8 +21,7 @@ public class LoginAPITest2 {
 
 		LoginResponse loginResponse = response.as(LoginResponse.class);// it returns you new LoginResponse();
 
-		// System.out.println(response.asPrettyString());
-		String token=loginResponse.getToken();
+		String token = loginResponse.getToken();
 
 	}
 }
