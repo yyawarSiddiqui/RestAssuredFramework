@@ -1,5 +1,7 @@
 package com.api.base;
 
+import com.api.filters.LoggingFilter;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -14,6 +16,11 @@ public class BaseService { // wrapper for restAssured
 	private final static String BASE_URL = "http://64.227.160.186:8080/";
 	private RequestSpecification requestSpecification;
 
+	static {
+
+		RestAssured.filters(new LoggingFilter());
+	}
+
 	public BaseService() {
 
 		requestSpecification = RestAssured.given().baseUri(BASE_URL);
@@ -27,7 +34,7 @@ public class BaseService { // wrapper for restAssured
 
 	protected RequestSpecification setAuthtoken(String token) {
 
-		return requestSpecification.header("Authorization","Bearer "+token);
+		return requestSpecification.header("Authorization", "Bearer " + token);
 
 	}
 
