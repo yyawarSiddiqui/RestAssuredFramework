@@ -2,19 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-18T20:16:17 IST" name="Default suite" finished-at="2024-12-18T20:16:18 IST" duration-ms="1437">
+  <suite started-at="2024-12-19T14:57:08 IST" name="Default suite" finished-at="2024-12-19T14:57:11 IST" duration-ms="2831">
     <groups>
-      <group name="Smoke">
-        <method signature="LoginAPITest.loginTest()[pri:0, instance:com.api.test.LoginAPITest@8dbdac1]" name="loginTest" class="com.api.test.LoginAPITest"/>
-      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-12-18T20:16:17 IST" name="Default test" finished-at="2024-12-18T20:16:18 IST" duration-ms="1437">
-      <class name="com.api.test.LoginAPITest">
-        <test-method signature="loginTest()[pri:0, instance:com.api.test.LoginAPITest@8dbdac1]" started-at="2024-12-18T20:16:17 IST" name="loginTest" description="Verify if login page is working" finished-at="2024-12-18T20:16:18 IST" duration-ms="1383" status="PASS">
+    <test started-at="2024-12-19T14:57:08 IST" name="Default test" finished-at="2024-12-19T14:57:11 IST" duration-ms="2831">
+      <class name="com.api.test.AccountCreationTest">
+        <test-method signature="AccountCreationTesting()[pri:0, instance:com.api.test.AccountCreationTest@5fdcaa40]" started-at="2024-12-19T14:57:08 IST" name="AccountCreationTesting" description="Verify signup of user" finished-at="2024-12-19T14:57:11 IST" duration-ms="2778" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-      </class> <!-- com.api.test.LoginAPITest -->
+        </test-method> <!-- AccountCreationTesting -->
+      </class> <!-- com.api.test.AccountCreationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
