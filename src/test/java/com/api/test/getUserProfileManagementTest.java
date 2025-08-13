@@ -10,23 +10,24 @@ import com.api.models.response.UserProfileResponse;
 
 import io.restassured.response.Response;
 
-public class UserProfileManagementTest {
+public class getUserProfileManagementTest {
 
 	@Test(description = "Verify UserProfileManagementTest of user")
 	public void Test() {
 
 		AuthService authService = new AuthService();
-		Response response = authService.login(new LoginRequest("uday1234", "uday1234"));
+		Response response = authService.login(new LoginRequest("yawafrhh", "56756453@E#$"));
 
 		LoginResponse loginResponse = response.as(LoginResponse.class);
 		String token = loginResponse.getToken();
-		
 		UserProfileManagementService managementService = new UserProfileManagementService();
-		
+
 		Response response2 = managementService.getProfile(token);
+		UserProfileResponse profileResponse = response2.as(UserProfileResponse.class);
 		
-		 UserProfileResponse profileResponse=response2.as(UserProfileResponse.class);
 		System.out.println(profileResponse.getUsername());
+		
+		
 	}
 
 }

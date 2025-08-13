@@ -1,6 +1,5 @@
 package com.api.models.response;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class LoginResponse {

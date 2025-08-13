@@ -18,7 +18,7 @@ public class LoginAPITest {
 				"application/json");
 
 		RequestSpecification SpecificationofRequest3 = SpecificationofRequest2
-				.body("{\r\n" + "  \"username\": \"uday1234\",\r\n" + "  \"password\": \"uday1234\"\r\n" + "}");
+				.body("{\r\n" + "  \"username\": \"yawafrhh\",\r\n" + "  \"password\": \"56756453@E#$\"\r\n" + "}");
 
 		Response response = SpecificationofRequest3.post("api/auth/login");
 

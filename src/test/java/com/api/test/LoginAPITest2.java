@@ -15,12 +15,15 @@ public class LoginAPITest2 {
 	@Test(description = "Verify if login page is working", groups = { "Smoke" })
 	public void loginTest() {
 
-		LoginRequest loginRequest = new LoginRequest("uday1234", "uday1234");
+		
+		
+		LoginRequest loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
 		AuthService authService = new AuthService();
 		Response response = authService.login(loginRequest);
 
 		LoginResponse loginResponse = response.as(LoginResponse.class);// it returns you new LoginResponse();
 
+		
 		String token = loginResponse.getToken();
 
 	}
