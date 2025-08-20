@@ -46,8 +46,18 @@ public class BaseService { // wrapper for restAssured
 
 	}
 
-	protected Response putRequest(Object payload,String endpoint) {
+	protected Response putRequest(Object payload, String endpoint) {
 		return requestSpecification.contentType(ContentType.JSON).body(payload).put(endpoint);
+
+	}
+
+	protected Response deleteRequest(String endpoint, String paramName, String paramValue) {
+		return requestSpecification.queryParam(paramName, paramValue).delete(endpoint);
+
+	}
+
+	protected Response patchRequest(Object Payload,String endpoint) {
+		return requestSpecification.contentType(ContentType.JSON).body(Payload).patch(endpoint);
 
 	}
 

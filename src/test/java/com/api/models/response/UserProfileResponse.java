@@ -1,5 +1,7 @@
 package com.api.models.response;
 
+import com.api.models.response.UserProfileResponse.Builder;
+
 public class UserProfileResponse {
 
 	private int id;
@@ -8,8 +10,6 @@ public class UserProfileResponse {
 	private String firstName;
 	private String lastName;
 	private String mobileNumber;
-	
-	
 
 	public UserProfileResponse() {
 
@@ -78,6 +78,52 @@ public class UserProfileResponse {
 	public String toString() {
 		return "UserProfileResponse [id=" + id + ", username=" + username + ", email=" + email + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + "]";
+	}
+
+	public static class Builder {
+
+		private int id;
+		private String username;
+		private String email;
+		private String firstName;
+		private String lastName;
+		private String mobileNumber;
+
+		public Builder id(int id) {
+			this.id = id;
+			return this;
+		}
+
+		public Builder email(String email) {
+			this.email = email;
+			return this;
+		}
+
+		public Builder firstName(String firstName) {
+			this.firstName = firstName;
+			return this;
+		}
+
+		public Builder lastName(String lastName) {
+			this.lastName = lastName;
+			return this;
+		}
+
+		public Builder mobileNumber(String mobileNumber) {
+			this.mobileNumber = mobileNumber;
+			return this;
+		}
+
+		public Builder id(String username) {
+			this.username = username;
+			return this;
+		}
+		
+		public UserProfileResponse build() {
+			UserProfileResponse profileResponse=new UserProfileResponse(id, username, email, firstName, lastName, mobileNumber);
+			return profileResponse;
+		}
+
 	}
 
 }
