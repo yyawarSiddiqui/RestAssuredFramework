@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-17T11:22:26 IST" name="Default suite" finished-at="2025-08-17T11:22:26 IST" duration-ms="50">
+  <suite started-at="2025-10-03T22:51:57 IST" name="Default suite" finished-at="2025-10-03T22:51:59 IST" duration-ms="1583">
     <groups>
+      <group name="Smoke">
+        <method signature="LoginAPITest2.loginTest()[pri:0, instance:com.api.test.LoginAPITest2@515aebb0]" name="loginTest" class="com.api.test.LoginAPITest2"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2025-08-17T11:22:26 IST" name="Default test" finished-at="2025-08-17T11:22:26 IST" duration-ms="50">
-      <class name="com.api.test.patchUpdateProfileTest">
-        <test-method signature="t1()[pri:0, instance:com.api.test.patchUpdateProfileTest@7c729a55]" started-at="2025-08-17T11:22:26 IST" name="t1" finished-at="2025-08-17T11:22:26 IST" duration-ms="7" status="PASS">
+    <test started-at="2025-10-03T22:51:57 IST" name="Default test" finished-at="2025-10-03T22:51:59 IST" duration-ms="1583">
+      <class name="com.api.test.LoginAPITest2">
+        <test-method signature="loginTest()[pri:0, instance:com.api.test.LoginAPITest2@515aebb0]" started-at="2025-10-03T22:51:57 IST" name="loginTest" description="Verify if login page is working" finished-at="2025-10-03T22:51:59 IST" duration-ms="1544" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- t1 -->
-        <test-method signature="t2()[pri:7, instance:com.api.test.patchUpdateProfileTest@7c729a55]" started-at="2025-08-17T11:22:26 IST" name="t2" finished-at="2025-08-17T11:22:26 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- t2 -->
-        <test-method signature="t3()[pri:0, instance:com.api.test.patchUpdateProfileTest@7c729a55]" started-at="2025-08-17T11:22:26 IST" name="t3" finished-at="2025-08-17T11:22:26 IST" depends-on-methods="com.api.test.patchUpdateProfileTest.t2" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- t3 -->
-      </class> <!-- com.api.test.patchUpdateProfileTest -->
+        </test-method> <!-- loginTest -->
+      </class> <!-- com.api.test.LoginAPITest2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
