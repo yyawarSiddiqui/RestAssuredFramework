@@ -1,4 +1,4 @@
-package com.demo;
+package com.SerializationDeserialization;
 
 import com.google.gson.Gson;
 
