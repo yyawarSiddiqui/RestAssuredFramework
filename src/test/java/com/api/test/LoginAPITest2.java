@@ -1,8 +1,8 @@
 package com.api.test;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.lessThan;
 
-import static  org.hamcrest.Matchers.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -19,10 +19,11 @@ public class LoginAPITest2 {
 	public void loginTest() {
 
 		
-		
 		LoginRequest loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
 		AuthService authService = new AuthService();
 		Response response = authService.login(loginRequest);
+		System.out.println(System.getProperty("env"));
+		
 	
 		LoginResponse loginResponse = response.as(LoginResponse.class);// it returns you new LoginResponse();
 		response.then().body(matchesJsonSchemaInClasspath("responseSchema/loginAPIResponseSchema.json"));

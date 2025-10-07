@@ -1,6 +1,7 @@
 package com.api.base;
 
 import com.api.filters.LoggingFilter;
+import static com.api.utils.ConfigManager.*;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -13,7 +14,7 @@ public class BaseService { // wrapper for restAssured
 	// Creating the Request
 	// Handling the Response
 
-	private final static String BASE_URL = "http://64.227.160.186:8080/";
+	private final static String BASE_URL = getProperty("Base_URI");
 	private RequestSpecification requestSpecification;
 
 	static {
@@ -56,7 +57,7 @@ public class BaseService { // wrapper for restAssured
 
 	}
 
-	protected Response patchRequest(Object Payload,String endpoint) {
+	protected Response patchRequest(Object Payload, String endpoint) {
 		return requestSpecification.contentType(ContentType.JSON).body(Payload).patch(endpoint);
 
 	}
