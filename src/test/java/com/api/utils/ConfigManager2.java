@@ -6,7 +6,8 @@ import java.util.Properties;
 public class ConfigManager2 {
 
 	private static Properties properties = new Properties();
-	private static final String path = "config/config.properties";
+	private static String path = "config/config.properties";
+	private static String environment;
 
 	private ConfigManager2() {
 
@@ -14,6 +15,19 @@ public class ConfigManager2 {
 	}
 
 	static {
+
+		environment = System.getProperty("env", "qa");
+		environment.toLowerCase().trim();
+
+		switch (environment) {
+		case "dev" -> path = "config/config.dev.properties";
+		
+		case "qa" -> path = "config/config.qa.properties";
+		
+		case "uat" -> path = "config/config.uat.properties";
+		
+		default -> path = "config/config.qa.properties";
+		}
 
 		InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
 
