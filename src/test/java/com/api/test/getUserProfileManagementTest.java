@@ -1,5 +1,6 @@
 package com.api.test;
 
+import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import com.api.base.AuthService;
@@ -26,8 +27,24 @@ public class getUserProfileManagementTest {
 		Response response2 = managementService.getProfile(getToken(ASSOCIATE));
 		UserProfileResponse profileResponse = response2.as(UserProfileResponse.class);
 
-		System.out.println(profileResponse.getUsername());
+		response2.then().statusCode(200).and().body("username", Matchers.equalTo("yawafrhh")).and()
+				.time(Matchers.lessThan(500L)).body("id", Matchers.greaterThanOrEqualTo(0))
+				.body("firstName",(Matchers.notNullValue()));
 
+
+	}
+	
+	@Test
+	public void test_countAPI_Missingtoken() {
+
+		LoginRequest loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
+		AuthService authService = new AuthService();
+		authService.login(loginRequest);
+		UserProfileManagementService managementService = new UserProfileManagementService();
+		Response response=managementService.getProfile(null);
+		response.then().statusCode(400);
+		
+		
 	}
 
 }

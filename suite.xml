@@ -3,7 +3,7 @@
 <suite name="API Test Suite">
 	<test thread-count="5" name="API Test">
 		<classes>
-			<class name="com.api.test.UserProfileManagementTest">
+			<class name="com.api.test.LoginAPITest">
 			</class>
 		</classes>
 	</test>

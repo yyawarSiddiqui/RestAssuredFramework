@@ -11,10 +11,16 @@ public class UserProfileManagementService extends BaseService {
 
 	public Response getProfile(String token) {
 
+		if (token==null || token.isEmpty()) {
+			
+			return getRequestWithoutAuth(BASE_PATH + "/profile");
+		}
+		
 		setAuthtoken(token);
 		return getRequest(BASE_PATH + "/profile");
 
 	}
+
 
 	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
 		setAuthtoken(token);

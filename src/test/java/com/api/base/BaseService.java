@@ -1,7 +1,7 @@
 package com.api.base;
 
 import com.api.filters.LoggingFilter;
-import static com.api.utils.ConfigManager.*;
+import static com.api.utils.ConfigManager2.*;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -60,6 +60,10 @@ public class BaseService { // wrapper for restAssured
 	protected Response patchRequest(Object Payload, String endpoint) {
 		return requestSpecification.contentType(ContentType.JSON).body(Payload).patch(endpoint);
 
+	}
+
+	protected Response getRequestWithoutAuth(String endpoint) {
+		return RestAssured.given().baseUri(BASE_URL).when().get(endpoint).then().extract().response();
 	}
 
 }

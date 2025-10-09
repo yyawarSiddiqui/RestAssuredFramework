@@ -1,77 +1,89 @@
 package com.api.models.response;
 
-import java.util.List;
-
 public class LoginResponse {
 	
 	private String token;
-	private String type;
-	private int id;
-	private String username;
-	private String email;
-	private List<String> roles;
-	
+	private String employeeCode;
+	private String photoUrl;
+	private String employeeName;
+	private String companyEmail;
+
 	
 	
 	public LoginResponse() {
 
+		
+		// Jackson needs this
 	}
 
-	public LoginResponse(String token, String type, int id, String username, String email, List<String> roles) {
+	
+	public LoginResponse(String token, String employeeCode, String photoUrl, String employeeName, String companyEmail) {
 		super();
 		this.token = token;
-		this.type = type;
-		this.id = id;
-		this.username = username;
-		this.email = email;
-		this.roles = roles;
+		this.employeeCode = employeeCode;
+		this.photoUrl = photoUrl;
+		this.employeeName = employeeName;
+		this.companyEmail = companyEmail;
 	}
+
 	
+
 	public String getToken() {
 		return token;
 	}
+
+
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
+
+
+	public String getEmployeeCode() {
+		return employeeCode;
 	}
 
-	public List<String> getRoles() {
-		return roles;
+
+	public void setEmployeeCode(String employeeCode) {
+		this.employeeCode = employeeCode;
 	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
+
+	public String getPhotoUrl() {
+		return photoUrl;
 	}
+
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
+
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+
+	public String getCompanyEmail() {
+		return companyEmail;
+	}
+
+
+	public void setCompanyEmail(String companyEmail) {
+		this.companyEmail = companyEmail;
+	}
+
 
 	@Override
 	public String toString() {
-		return "LoginResponse [token=" + token + ", type=" + type + ", id=" + id + ", username=" + username + ", email="
-				+ email + ", roles=" + roles + "]";
+		return "LoginResponse [token=" + token + ", employeeCode=" + employeeCode + ", photoUrl=" + photoUrl
+				+ ", employeeName=" + employeeName + ", companyEmail=" + companyEmail + "]";
 	}
-	
+
 
 	
 	

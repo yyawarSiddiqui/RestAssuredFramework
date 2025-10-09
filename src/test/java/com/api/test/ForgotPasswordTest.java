@@ -13,7 +13,6 @@ public class ForgotPasswordTest {
 
 		AuthService authService = new AuthService();
 		Response response=authService.forgotPassword("dfbh@fd.com");
-		System.out.println(response.asPrettyString());
 		
 	}
 }

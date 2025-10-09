@@ -1,42 +1,35 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Welcome7",
+    "$ref": "#/definitions/Welcome3",
     "definitions": {
-        "Welcome7": {
+        "Welcome3": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
+                "employeeName": {
+                    "type": "string"
+                },
+                "employeeCode": {
+                    "type": "string"
+                },
+                "companyEmail": {
+                    "type": "string"
+                },
+                "photoUrl": {
+                    "type": "string"
+                },
                 "token": {
                     "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "username": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "roles": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
                 }
             },
             "required": [
-                "email",
-                "id",
-                "roles",
-                "token",
-                "type",
-                "username"
+                "companyEmail",
+                "employeeCode",
+                "employeeName",
+                "photoUrl",
+                "token"
             ],
-            "title": "Welcome7"
+            "title": "Welcome3"
         }
     }
 }

@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 
 public class AuthService extends BaseService {
 
-	private final static String BASE_PATH = "api/auth/";
+	private final static String BASE_PATH = "api/Account/";
 
 	public Response login(LoginRequest payload) {
 

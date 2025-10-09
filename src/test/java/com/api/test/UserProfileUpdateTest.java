@@ -30,7 +30,8 @@ public class UserProfileUpdateTest {
 
 		Response response3 = managementService.modifyProfile(token, updateUserProfileData);
 		UserProfileUpdateTestResponse userProfileUpdateTestResponse = response3.as(UserProfileUpdateTestResponse.class);
-
+		response3.then().statusCode(200);
+		
 		Assert.assertEquals(userProfileUpdateTestResponse.getStatus(), 200);
 
 	}

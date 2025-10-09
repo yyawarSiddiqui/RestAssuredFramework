@@ -19,27 +19,27 @@ public class AuthTokenProvider {
 
 		if (Role == Roles.HR) {
 
-			loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
+			loginRequest = new LoginRequest("INEMP000775", "ibs#2020");
 
 		} else if (Role == Roles.ACCOUNT) {
 
-			loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
+			loginRequest = new LoginRequest("INEMP000327", "ibs#2020");
 
 		}
 
 		else if (Role == Roles.ADMIN) {
 
-			loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
+			loginRequest = new LoginRequest("INEMP000410", "ibs#2020");
 
 		} else if (Role == Roles.ASSOCIATE) {
 
-			loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
+			loginRequest = new LoginRequest("INEMP000667", "ibs#2020");
 
 		}
 
 		else if (Role == Roles.IT) {
 
-			loginRequest = new LoginRequest("yawafrhh", "56756453@E#$");
+			loginRequest = new LoginRequest("INEMP000228", "ibs#2020");
 
 		}
 

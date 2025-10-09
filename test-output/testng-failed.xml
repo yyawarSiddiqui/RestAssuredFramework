@@ -5,7 +5,7 @@
     <classes>
       <class name="com.api.test.LoginAPITest2">
         <methods>
-          <include name="loginTest"/>
+          <include name="loginTestasAdmin"/>
         </methods>
       </class> <!-- com.api.test.LoginAPITest2 -->
     </classes>

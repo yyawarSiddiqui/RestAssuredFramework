@@ -23,7 +23,6 @@ public class deleteUserProfileTest {
 		UserProfileManagementService managementService = new UserProfileManagementService();
 
 		Response response2 = managementService.deleteProfile(token);
-		System.out.println(response2.asPrettyString());
 
 		Assert.assertEquals(response2.statusCode(), 200);
 		

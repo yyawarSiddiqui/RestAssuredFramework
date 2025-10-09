@@ -17,7 +17,6 @@ public class AccountCreationTest {
 
 		AuthService authService = new AuthService();
 		Response response=authService.signUp(signUpRequest);
-		System.out.println(response.asPrettyString());
 	}
 
 }
