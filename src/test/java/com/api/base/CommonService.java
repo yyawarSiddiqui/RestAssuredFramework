@@ -1,42 +1,21 @@
 package com.api.base;
 
-import static com.api.constant.Roles.HR;
 import java.util.Map;
+
 import com.api.models.request.UpdateUserProfileData;
 import com.api.models.request.patchUpdateUserProfiledata;
 import com.api.models.response.JwtDecodedResponse;
-import static com.api.utils.JwtDecoder.*;
 
 import io.restassured.response.Response;
 
-public class RecruitmentRequestFormRRFService extends BaseService {
+public class CommonService extends BaseService {
 
 	JwtDecodedResponse decodedResponse = new JwtDecodedResponse();
+	private static final String BASE_PATH = "api/common/";
+	public static final String ENDPOINT_RRF_GET_ROLEWISE_TITLE = "/GetRolewiseEmployees";
+	public static final String ENDPOINT_GetAllReportingMgr = "/GetAllReportingMgr";
 
-	private static final String BASE_PATH = "api/rrf/";
-	public static final String ENDPOINT_RRF_JOB_TITLE = "/GetRRFNoWithJobTitle";
-	public static final String ENDPOINT_RRF_BYRRFID = "/GetRRFByRRFID";
-	String Empid;
-
-	public RecruitmentRequestFormRRFService(String token) {
-		decodedResponse = DecodedJWTbyUSer(HR);
-		this.Empid = decodedResponse.getEmployeeID();
-
-	}
-
-	public RecruitmentRequestFormRRFService() {
-
-	}
-
-	public Response getTechnologies(String token) {
-
-		if (token == null || token.isEmpty()) {
-
-			return getRequestWithoutAuth(BASE_PATH + Empid + "/Technologies");
-		}
-
-		setAuthtoken(token);
-		return getRequest(BASE_PATH + Empid + "/Technologies");
+	public CommonService() {
 
 	}
 
@@ -69,10 +48,6 @@ public class RecruitmentRequestFormRRFService extends BaseService {
 
 	public static String getBasePath() {
 		return BASE_PATH;
-	}
-
-	public String getEmpID() {
-		return Empid;
 	}
 
 }

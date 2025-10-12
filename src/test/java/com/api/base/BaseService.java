@@ -51,7 +51,7 @@ public class BaseService { // wrapper for restAssured
 
 	}
 	
-	protected Response getRequestwithParams(String endpoint, Map<String,Object> queryParams, String token) {
+	public Response getRequestwithParams(String endpoint, Map<String,Object> queryParams, String token) {
 
 		setAuthtoken(token);
 		return requestSpecification.queryParams(queryParams).get(endpoint);

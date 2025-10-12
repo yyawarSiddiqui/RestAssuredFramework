@@ -28,6 +28,7 @@ public class LoggingFilter implements Filter {
 		logger.info("BASE URI:" + requestSpec.getBaseUri());
 		logger.info("Request Header:" + requestSpec.getHeaders());
 		logger.info("Request Payload:" + requestSpec.getBody());
+		logger.info("Request Payload:" + requestSpec.getURI());
 	}
 
 	public void logResponse(Response response) {

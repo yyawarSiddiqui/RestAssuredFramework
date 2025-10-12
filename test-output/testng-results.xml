@@ -1,36 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-10T12:16:49 IST" name="Default suite" finished-at="2025-10-10T12:16:52 IST" duration-ms="3451">
+  <suite started-at="2025-10-12T14:53:59 IST" name="Default suite" finished-at="2025-10-12T14:54:26 IST" duration-ms="26709">
     <groups>
-      <group name="Smoke">
-        <method signature="LoginAPITest.loginTestasAccount()[pri:0, instance:com.api.test.LoginAPITest@223191a6]" name="loginTestasAccount" class="com.api.test.LoginAPITest"/>
-      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2025-10-10T12:16:49 IST" name="Default test" finished-at="2025-10-10T12:16:52 IST" duration-ms="3451">
-      <class name="com.api.test.LoginAPITest">
-        <test-method signature="loginTestasAccount()[pri:0, instance:com.api.test.LoginAPITest@223191a6]" started-at="2025-10-10T12:16:49 IST" name="loginTestasAccount" description="Verify if login page is working" finished-at="2025-10-10T12:16:52 IST" duration-ms="2957" status="PASS">
+    <test started-at="2025-10-12T14:53:59 IST" name="Default test" finished-at="2025-10-12T14:54:26 IST" duration-ms="26709">
+      <class name="com.api.test.rrfServicetest">
+        <test-method signature="test_getrrfDetail()[pri:0, instance:com.api.test.rrfServicetest@1623b78d]" started-at="2025-10-12T14:53:59 IST" name="test_getrrfDetail" finished-at="2025-10-12T14:54:02 IST" duration-ms="2685" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTestasAccount -->
-        <test-method signature="loginTestasAdmin()[pri:0, instance:com.api.test.LoginAPITest@223191a6]" started-at="2025-10-10T12:16:52 IST" name="loginTestasAdmin" finished-at="2025-10-10T12:16:52 IST" duration-ms="129" status="PASS">
+        </test-method> <!-- test_getrrfDetail -->
+        <test-method signature="test_getRRFBYID()[pri:0, instance:com.api.test.rrfServicetest@1623b78d]" started-at="2025-10-12T14:54:02 IST" name="test_getRRFBYID" finished-at="2025-10-12T14:54:26 IST" depends-on-methods="com.api.test.rrfServicetest.test_getrrfDetail" duration-ms="23975" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTestasAdmin -->
-        <test-method signature="loginTestasAssociate()[pri:0, instance:com.api.test.LoginAPITest@223191a6]" started-at="2025-10-10T12:16:52 IST" name="loginTestasAssociate" finished-at="2025-10-10T12:16:52 IST" duration-ms="110" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTestasAssociate -->
-        <test-method signature="loginTestasHR()[pri:0, instance:com.api.test.LoginAPITest@223191a6]" started-at="2025-10-10T12:16:52 IST" name="loginTestasHR" finished-at="2025-10-10T12:16:52 IST" duration-ms="113" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTestasHR -->
-        <test-method signature="loginTestasIT()[pri:0, instance:com.api.test.LoginAPITest@223191a6]" started-at="2025-10-10T12:16:52 IST" name="loginTestasIT" finished-at="2025-10-10T12:16:52 IST" duration-ms="66" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTestasIT -->
-      </class> <!-- com.api.test.LoginAPITest -->
+        </test-method> <!-- test_getRRFBYID -->
+      </class> <!-- com.api.test.rrfServicetest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
