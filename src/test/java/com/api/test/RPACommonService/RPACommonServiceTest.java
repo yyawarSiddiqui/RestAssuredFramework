@@ -1,4 +1,4 @@
-package com.api.test;
+package com.api.test.RPACommonService;
 
 import static com.api.constant.Roles.HR;
 import static com.api.utils.ParseToken.Parsetoken;

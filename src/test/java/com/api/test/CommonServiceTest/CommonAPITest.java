@@ -1,4 +1,4 @@
-package com.api.test;
+package com.api.test.CommonServiceTest;
 
 import static com.api.base.CommonService.ENDPOINT_GetAllReportingMgr;
 import static com.api.base.CommonService.ENDPOINT_RRF_GET_ROLEWISE_TITLE;

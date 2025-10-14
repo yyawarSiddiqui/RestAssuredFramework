@@ -1,4 +1,4 @@
-package com.api.test;
+package com.api.test.RRFService;
 
 import static com.api.base.RecruitmentRequestFormRRFService.getBasePath;
 import static com.api.utils.ParseToken.Parsetoken;
@@ -50,7 +50,7 @@ public class rrfServicetest {
 		authService.login(loginRequest);
 		RecruitmentRequestFormRRFService managementService = new RecruitmentRequestFormRRFService();
 		Response response = managementService.getTechnologies(null);
-		response.then().statusCode(400);
+		response.then().statusCode(401);
 
 	}
 
