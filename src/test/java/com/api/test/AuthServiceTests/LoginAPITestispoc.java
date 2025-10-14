@@ -1,4 +1,4 @@
-package com.api.test.AuthServiceTest;
+package com.api.test.AuthServiceTests;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.lessThan;
