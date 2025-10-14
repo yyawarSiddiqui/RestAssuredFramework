@@ -6,6 +6,7 @@ import com.api.models.request.UpdateUserProfileData;
 import com.api.models.request.patchUpdateUserProfiledata;
 import com.api.models.response.JwtDecodedResponse;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class CommonService extends BaseService {
@@ -14,6 +15,8 @@ public class CommonService extends BaseService {
 	private static final String BASE_PATH = "api/common/";
 	public static final String ENDPOINT_RRF_GET_ROLEWISE_TITLE = "/GetRolewiseEmployees";
 	public static final String ENDPOINT_GetAllReportingMgr = "/GetAllReportingMgr";
+	public static final String ENDPOINT_GetROLE_BASEDUSER_MENU = "/GetAllReportingMgr";
+	public static final String ENDPOINT_GetAllEMPLOYEE = "/GetAllEmployees";
 
 	public CommonService() {
 
@@ -30,6 +33,97 @@ public class CommonService extends BaseService {
 
 		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
 
+	}
+
+	public Response getRoleBasedUserMenu(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetRoleBasedUserMenu");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetRoleBasedUserMenu");
+
+	}
+
+	public Response getExperience(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetExperience");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetExperience");
+
+	}
+	
+	public Response getTechnonlogy(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetTechnology");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetTechnology");
+
+	}
+	
+	public Response getAssociateType(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetAssociateType");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetAssociateType");
+
+	}
+	
+	public Response GetGender(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetGender");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetGender");
+
+	}
+	
+	public Response GetMartialStatus(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetMaritalStatus");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetMaritalStatus");
+
+	}
+	
+	public Response GetEducation(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetEducation");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetEducation");
+
+	}
+	
+	
+	public Response getRequestofPlainText(String token, String EmployeeId) {
+
+		setAuthtoken(token);
+		return super.getRequestofPlainText(BASE_PATH + EmployeeId + "/GetRoleBasedUserMenu");
 	}
 
 	public Response deleteProfile(String token) {

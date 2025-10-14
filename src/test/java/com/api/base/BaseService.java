@@ -22,6 +22,7 @@ public class BaseService { // wrapper for restAssured
 	static {
 
 		RestAssured.filters(new LoggingFilter());
+		RestAssured.registerParser("text/plain", io.restassured.parsing.Parser.JSON);
 	}
 
 	public BaseService() {
@@ -51,6 +52,12 @@ public class BaseService { // wrapper for restAssured
 
 	}
 	
+	public Response getRequestofPlainText(String endpoint) {
+
+		return requestSpecification.contentType("text/plain").get(endpoint);
+
+	}
+	
 	public Response getRequestwithParams(String endpoint, Map<String,Object> queryParams, String token) {
 
 		setAuthtoken(token);
@@ -77,4 +84,10 @@ public class BaseService { // wrapper for restAssured
 		return RestAssured.given().baseUri(BASE_URL).when().get(endpoint).then().extract().response();
 	}
 
+	public static String getBaseUrl() {
+		return BASE_URL;
+	}
+
+
+	
 }
