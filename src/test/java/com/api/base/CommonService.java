@@ -17,6 +17,7 @@ public class CommonService extends BaseService {
 	public static final String ENDPOINT_GetAllReportingMgr = "/GetAllReportingMgr";
 	public static final String ENDPOINT_GetROLE_BASEDUSER_MENU = "/GetAllReportingMgr";
 	public static final String ENDPOINT_GetAllEMPLOYEE = "/GetAllEmployees";
+	public static final String ENDPOINT_GetRoleBasedUserMenu= "/GetRoleBasedUserMenu";
 
 	public CommonService() {
 
@@ -119,11 +120,144 @@ public class CommonService extends BaseService {
 
 	}
 	
-	
-	public Response getRequestofPlainText(String token, String EmployeeId) {
+	public Response GetProfitCentre(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/ProfitCenterMappingList");
+		}
 
 		setAuthtoken(token);
-		return super.getRequestofPlainText(BASE_PATH + EmployeeId + "/GetRoleBasedUserMenu");
+		return getRequest(BASE_PATH + EmployeeID + "/ProfitCenterMappingList");
+
+	}
+	
+	public Response GetTimesheet(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetTimeSheet");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetTimeSheet");
+
+	}
+	
+	public Response GetBioMetricCardNumber(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetBioMetricCardNo");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetBioMetricCardNo");
+
+	}
+	
+	public Response GetStandardWeekDays(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetStandardWeekDays");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetStandardWeekDays");
+
+	}
+	
+	public Response GetStates(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetStates");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetStates");
+
+	}
+	
+	public Response GetDegreeLevel(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetDegreeLevel");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetDegreeLevel");
+
+	}
+	
+	public Response GetRelationship(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetRelationship");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetRelationship");
+
+	}
+	
+	public Response GetTypesOfAccount(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetTypesOfAccount");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetTypesOfAccount");
+
+	}
+	
+	public Response GetYears(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetYears");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetYears");
+
+	}
+	
+	public Response GetIdentityName(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetIdentityName");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetIdentityName");
+
+	}
+	
+	public Response ISFlexibleWeekoffAllowBYdept(String token, String EmployeeID, Map<String,Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/ISFlexibleWeekoffAllow");
+		}
+		
+		setHeaders(headers);
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/ISFlexibleWeekoffAllow");
+
+	}
+	
+	
+	public Response getRequestofPlainText(String token, String EmployeeId, String Endpoint) {
+
+		setAuthtoken(token);
+		return super.getRequestofPlainText(BASE_PATH + EmployeeId + Endpoint);
 	}
 
 	public Response deleteProfile(String token) {

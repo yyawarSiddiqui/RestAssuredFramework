@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.api.test.rrfServicetest">
+      <class name="com.api.test.ListAssociate.ListAssociateServiceTest">
         <methods>
-          <include name="test_countAPI_Missingtoken"/>
+          <include name="test_GetEmployeeWeeklyOffDetails" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10 11"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.api.test.rrfServicetest -->
+      </class> <!-- com.api.test.ListAssociate.ListAssociateServiceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

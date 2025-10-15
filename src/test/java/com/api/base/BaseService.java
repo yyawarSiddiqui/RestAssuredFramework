@@ -3,6 +3,7 @@ package com.api.base;
 import com.api.filters.LoggingFilter;
 import static com.api.utils.ConfigManager2.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import io.restassured.RestAssured;
@@ -38,11 +39,15 @@ public class BaseService { // wrapper for restAssured
 
 	}
 
-	
-
 	protected RequestSpecification setAuthtoken(String token) {
 
 		return requestSpecification.header("Authorization", "Bearer " + token);
+
+	}
+
+	protected RequestSpecification setHeaders(Map<String,Object> headers) {
+
+		return requestSpecification.headers(headers);
 
 	}
 
@@ -51,14 +56,14 @@ public class BaseService { // wrapper for restAssured
 		return requestSpecification.get(endpoint);
 
 	}
-	
+
 	public Response getRequestofPlainText(String endpoint) {
 
 		return requestSpecification.contentType("text/plain").get(endpoint);
 
 	}
-	
-	public Response getRequestwithParams(String endpoint, Map<String,Object> queryParams, String token) {
+
+	public Response getRequestwithParams(String endpoint, Map<String, Object> queryParams, String token) {
 
 		setAuthtoken(token);
 		return requestSpecification.queryParams(queryParams).get(endpoint);
@@ -88,6 +93,4 @@ public class BaseService { // wrapper for restAssured
 		return BASE_URL;
 	}
 
-
-	
 }

@@ -1,6 +1,7 @@
 package com.api.test.CommonServiceTest;
 
-import static com.api.base.CommonService.*;
+import static com.api.base.CommonService.ENDPOINT_GetAllEMPLOYEE;
+import static com.api.base.CommonService.ENDPOINT_GetAllReportingMgr;
 import static com.api.base.CommonService.ENDPOINT_RRF_GET_ROLEWISE_TITLE;
 import static com.api.base.CommonService.getBasePath;
 import static com.api.constant.Roles.HR;
@@ -16,33 +17,46 @@ import java.util.Map;
 
 import org.hamcrest.Matchers;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.api.base.CommonService;
 import com.api.models.response.GetAllEmployee;
-import com.api.models.response.GetExperience;
-import com.api.models.response.GetTechnoloyResponse;
 import com.api.models.response.RolebasedUserMenu;
 import com.api.models.response.getAssociateTypeResponse;
 import com.api.models.response.getGenderResponse;
 import com.api.models.response.getRRFbyIDResponse;
 import com.api.utils.AuthTokenProvider;
+import static com.api.utils.getEmployeeDetailID.*;
 
 import io.restassured.response.Response;
 
 public class CommonAPITest {
 
+	private CommonService commonService;
+	private String Emp_id;
+	private String token;
+	private String employeedetailID;
+
+	@BeforeClass
+	public void setup() {
+
+		Emp_id = getEmployeeID(HR);
+		token = AuthTokenProvider.getToken(HR);
+		commonService = new CommonService();
+		employeedetailID = GetEmployeedetailID(HR);
+	}
+
 	@Test
 	public void test_getRRFBYID() {
 
-		String Emp_id = getEmployeeID(HR);
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("RoleIds", 7);
 		queryParams.put("eID", 0);
 		queryParams.put("FAC", 0);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService RRFService = new CommonService();
-		Response response = RRFService.getRequestwithParams(getBasePath() + Emp_id + ENDPOINT_RRF_GET_ROLEWISE_TITLE,
+
+		Response response = commonService.getRequestwithParams(getBasePath() + Emp_id + ENDPOINT_RRF_GET_ROLEWISE_TITLE,
 				queryParams, Parsetoken(token));
 
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
@@ -57,13 +71,9 @@ public class CommonAPITest {
 	@Test
 	public void test_GetAllReportingMagaer() {
 
-		String Emp_id = getEmployeeID(HR);
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("FAC", 0);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService RRFService = new CommonService();
-
-		Response response = RRFService.getRequestwithParams(getBasePath() + Emp_id + ENDPOINT_GetAllReportingMgr,
+		Response response = commonService.getRequestwithParams(getBasePath() + Emp_id + ENDPOINT_GetAllReportingMgr,
 				queryParams, Parsetoken(token));
 
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
@@ -75,12 +85,11 @@ public class CommonAPITest {
 	@Test
 	public void getRoleBasedUserMenu() {
 
-		String Emp_id = getEmployeeID(HR);
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("FAC", 0);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.getRequestofPlainText(Parsetoken(token), Emp_id);
+
+		Response response = commonService.getRequestofPlainText(Parsetoken(token), Emp_id,
+				CommonService.ENDPOINT_GetRoleBasedUserMenu);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L));
 
@@ -97,7 +106,6 @@ public class CommonAPITest {
 	@Test
 	public void getAllEmployees() {
 
-		String Emp_id = getEmployeeID(HR);
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("FAC", 1);
 		queryParams.put("CE", 1);
@@ -105,9 +113,8 @@ public class CommonAPITest {
 		queryParams.put("CompanyID", 0);
 		queryParams.put("LocationID", 0);
 		queryParams.put("ProCenIds", "");
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.getRequestwithParams(getBasePath() + Emp_id + ENDPOINT_GetAllEMPLOYEE,
+
+		Response response = commonService.getRequestwithParams(getBasePath() + Emp_id + ENDPOINT_GetAllEMPLOYEE,
 				queryParams, Parsetoken(token));
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and().body("employeeID", Matchers.everyItem(Matchers.notNullValue()))
@@ -126,10 +133,7 @@ public class CommonAPITest {
 	@Test
 	public void getExperience() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.getExperience(Parsetoken(token), Emp_id);
+		Response response = commonService.getExperience(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and().body("name", Matchers.everyItem(Matchers.notNullValue())).and()
 				.body("id", Matchers.everyItem(Matchers.notNullValue()));
@@ -142,10 +146,7 @@ public class CommonAPITest {
 	@Test
 	public void getTechnology() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.getTechnonlogy(Parsetoken(token), Emp_id);
+		Response response = commonService.getTechnonlogy(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and().body("ID", Matchers.everyItem(Matchers.notNullValue())).and()
 				.body("Technology", Matchers.everyItem(Matchers.notNullValue()));
@@ -158,10 +159,7 @@ public class CommonAPITest {
 	@Test
 	public void getAssociateType() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.getAssociateType(Parsetoken(token), Emp_id);
+		Response response = commonService.getAssociateType(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and()
 				.body("AssociateTypeId", Matchers.everyItem(Matchers.notNullValue())).and()
@@ -180,10 +178,7 @@ public class CommonAPITest {
 	@Test
 	public void getGender() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.GetGender(Parsetoken(token), Emp_id);
+		Response response = commonService.GetGender(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
 				.body("name", Matchers.everyItem(Matchers.notNullValue()));
@@ -204,10 +199,7 @@ public class CommonAPITest {
 	@Test
 	public void getMartialStatus() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.GetMartialStatus(Parsetoken(token), Emp_id);
+		Response response = commonService.GetMartialStatus(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
 				.body("name", Matchers.everyItem(Matchers.notNullValue()))
@@ -218,14 +210,120 @@ public class CommonAPITest {
 	@Test
 	public void getEducation() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
-		CommonService CommomService = new CommonService();
-		Response response = CommomService.GetEducation(Parsetoken(token), Emp_id);
+		Response response = commonService.GetEducation(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
 				.time(Matchers.lessThan(10000L)).and().body("DegreeLevel", Matchers.everyItem(Matchers.notNullValue()))
 				.and().body("Value", Matchers.everyItem(Matchers.notNullValue()))
 				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(2)));
+
+	}
+
+	@Test
+	public void test_getProfitCentre() {
+
+		Response response = commonService.GetProfitCentre(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and()
+				.body("ProfitCenterID", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("ProfitCenterID", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_getTimeSheet() {
+
+		Response response = commonService.GetTimesheet(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_getBioMetricCardNumber() {
+
+		Response response = commonService.GetBioMetricCardNumber(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L));
+
+	}
+
+	@Test
+	public void test_GetStandardWeekDays() {
+
+		Response response = commonService.GetStandardWeekDays(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_GetStates() {
+
+		Response response = commonService.GetDegreeLevel(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_GetRealtionship() {
+
+		Response response = commonService.GetRelationship(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_GetTypeofAccount() {
+
+		Response response = commonService.GetTypesOfAccount(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_Getyears() {
+
+		Response response = commonService.GetYears(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_GetIdentity() {
+
+		Response response = commonService.GetIdentityName(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
+				.time(Matchers.lessThan(10000L)).and().body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()))
+				.body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)));
+
+	}
+
+	@Test
+	public void test_ISFlexibleWeekoffAllowByDept() {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("departmentid", 6);
+		Response response = commonService.ISFlexibleWeekoffAllowBYdept(Parsetoken(token), Emp_id, map);
+		response.then().statusCode(200).and().body("Id", (Matchers.greaterThan(0))).time(Matchers.lessThan(10000L))
+				.and().body("Id", (Matchers.notNullValue())).and().body("Name", (Matchers.notNullValue()));
 
 	}
 

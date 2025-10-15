@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/Welcome3Element"
+    },
+    "definitions": {
+        "Welcome3Element": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "locationShortCode": {
+                    "type": "string"
+                },
+                "localCurrencyId": {
+                    "type": "integer"
+                },
+                "localCurrency": {
+                    "type": "string"
+                },
+                "countryId": {
+                    "type": "integer"
+                },
+                "countryName": {
+                    "type": "string"
+                },
+                "companyID": {
+                    "type": "integer"
+                },
+                "companyName": {
+                    "type": "string"
+                },
+                "isActive": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "companyID",
+                "companyName",
+                "countryId",
+                "countryName",
+                "id",
+                "isActive",
+                "localCurrency",
+                "localCurrencyId",
+                "location",
+                "locationShortCode",
+                "status"
+            ],
+            "title": "Welcome3Element"
+        }
+    }
+}
