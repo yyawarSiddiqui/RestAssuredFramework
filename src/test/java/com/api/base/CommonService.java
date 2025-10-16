@@ -17,7 +17,7 @@ public class CommonService extends BaseService {
 	public static final String ENDPOINT_GetAllReportingMgr = "/GetAllReportingMgr";
 	public static final String ENDPOINT_GetROLE_BASEDUSER_MENU = "/GetAllReportingMgr";
 	public static final String ENDPOINT_GetAllEMPLOYEE = "/GetAllEmployees";
-	public static final String ENDPOINT_GetRoleBasedUserMenu= "/GetRoleBasedUserMenu";
+	public static final String ENDPOINT_GetRoleBasedUserMenu = "/GetRoleBasedUserMenu";
 
 	public CommonService() {
 
@@ -59,7 +59,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetExperience");
 
 	}
-	
+
 	public Response getTechnonlogy(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -71,7 +71,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetTechnology");
 
 	}
-	
+
 	public Response getAssociateType(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -83,7 +83,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetAssociateType");
 
 	}
-	
+
 	public Response GetGender(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -95,7 +95,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetGender");
 
 	}
-	
+
 	public Response GetMartialStatus(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -107,7 +107,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetMaritalStatus");
 
 	}
-	
+
 	public Response GetEducation(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -119,7 +119,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetEducation");
 
 	}
-	
+
 	public Response GetProfitCentre(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -131,7 +131,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/ProfitCenterMappingList");
 
 	}
-	
+
 	public Response GetTimesheet(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -143,7 +143,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetTimeSheet");
 
 	}
-	
+
 	public Response GetBioMetricCardNumber(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -155,7 +155,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetBioMetricCardNo");
 
 	}
-	
+
 	public Response GetStandardWeekDays(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -167,7 +167,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetStandardWeekDays");
 
 	}
-	
+
 	public Response GetStates(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -179,7 +179,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetStates");
 
 	}
-	
+
 	public Response GetDegreeLevel(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -191,7 +191,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetDegreeLevel");
 
 	}
-	
+
 	public Response GetRelationship(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -203,7 +203,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetRelationship");
 
 	}
-	
+
 	public Response GetTypesOfAccount(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -215,7 +215,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetTypesOfAccount");
 
 	}
-	
+
 	public Response GetYears(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -227,7 +227,7 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetYears");
 
 	}
-	
+
 	public Response GetIdentityName(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -239,18 +239,49 @@ public class CommonService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetIdentityName");
 
 	}
-	
-	public Response ISFlexibleWeekoffAllowBYdept(String token, String EmployeeID, Map<String,Object> headers) {
+
+	public Response ISFlexibleWeekoffAllowBYdept(String token, String EmployeeID, Map<String, Object> headers) {
 
 		if (token == null || token.isEmpty()) {
 
 			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/ISFlexibleWeekoffAllow");
 		}
-		
+
 		setHeaders(headers);
 		setAuthtoken(token);
 		return getRequest(BASE_PATH + EmployeeID + "/ISFlexibleWeekoffAllow");
 
+	}
+
+	public Response getTypeofAccount(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetTypesOfAccount");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetTypesOfAccount");
+
+	}
+	
+	public Response getIdentityName(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetIdentityName");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetIdentityName");
+
+	}
+	
+	public Response UploadImage(Map<String,Object> obj,String EmployeeId,String token) {
+
+		setAuthtoken(token);
+		setMultipart(obj);
+		return postRequestforMultiPart(BASE_PATH + EmployeeId+"/UploadFile");
 	}
 	
 	

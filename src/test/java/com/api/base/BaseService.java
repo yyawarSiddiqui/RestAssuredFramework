@@ -3,6 +3,7 @@ package com.api.base;
 import com.api.filters.LoggingFilter;
 import static com.api.utils.ConfigManager2.*;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,9 +34,13 @@ public class BaseService { // wrapper for restAssured
 
 	protected Response postRequest(Object payload, String endpoint) {
 
-//		Object Datatype is passed here which is OBJECT
-
 		return requestSpecification.contentType(ContentType.JSON).body(payload).post(endpoint);
+
+	}
+
+	protected Response postRequestforMultiPart( String endpoint) {
+
+		return requestSpecification.contentType(ContentType.MULTIPART).post(endpoint);
 
 	}
 
@@ -69,6 +74,23 @@ public class BaseService { // wrapper for restAssured
 		return requestSpecification.queryParams(queryParams).get(endpoint);
 
 	}
+	
+	protected RequestSpecification setMultipart(Map<String, Object> parts) {
+	    for (Map.Entry<String, Object> entry : parts.entrySet()) {
+	        Object value = entry.getValue();
+
+	        if (value instanceof File) {
+	            requestSpecification.multiPart(entry.getKey(), (File) value);
+	        } else if (value instanceof String) {
+	            requestSpecification.multiPart(entry.getKey(), value.toString());
+	        } else {
+	            throw new IllegalArgumentException("Unsupported multipart type for key: " + entry.getKey());
+	        }
+	    }
+	    return requestSpecification;
+	}
+
+
 
 	protected Response putRequest(Object payload, String endpoint) {
 		return requestSpecification.contentType(ContentType.JSON).body(payload).put(endpoint);

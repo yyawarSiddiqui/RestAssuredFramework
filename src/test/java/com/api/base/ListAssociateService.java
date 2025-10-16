@@ -2,7 +2,7 @@ package com.api.base;
 
 import java.util.Map;
 
-import com.api.models.request.UpdateUserProfileData;
+//import com.api.models.request.UpdateUserProfileData;
 import com.api.models.request.patchUpdateUserProfiledata;
 
 import io.restassured.response.Response;
@@ -18,12 +18,12 @@ public class ListAssociateService extends BaseService {
 		return super.getRequestwithParams(endpoint, queryParams, token);
 	}
 
-	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
-		setAuthtoken(token);
-
-		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
-
-	}
+//	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
+//		setAuthtoken(token);
+//
+//		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
+//
+//	}
 
 	public Response getListofAssociate(String token, String EmployeeID) {
 
@@ -68,11 +68,28 @@ public class ListAssociateService extends BaseService {
 
 			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetEmployeeWeeklyOffDetails");
 		}
-
 		setHeaders(headers);
 		setAuthtoken(token);
 		return getRequest(BASE_PATH + EmployeeID + "/GetEmployeeWeeklyOffDetails");
 
+	}
+	
+	public Response GetMinimumCommitmentHrs(String token, String EmployeeID, Map<String, Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetMinimumCommitmentHrs");
+		}
+		setHeaders(headers);
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetMinimumCommitmentHrs");
+
+	}
+
+	public Response SaveEmployeeDetails(Object payload,String EmployeeId,String token) {
+
+		setAuthtoken(token);
+		return postRequest(payload, BASE_PATH + EmployeeId+"/SaveEmployeeBasicDetailsCTE");
 	}
 
 	public Response getRequestofPlainText(String token, String EmployeeId, String Endpoint,

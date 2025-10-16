@@ -7,10 +7,13 @@ import static com.api.base.CommonService.getBasePath;
 import static com.api.constant.Roles.HR;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
+import static com.api.utils.getEmployeeDetailID.GetEmployeedetailID;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.File;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +21,7 @@ import java.util.Map;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.api.base.CommonService;
@@ -28,7 +31,6 @@ import com.api.models.response.getAssociateTypeResponse;
 import com.api.models.response.getGenderResponse;
 import com.api.models.response.getRRFbyIDResponse;
 import com.api.utils.AuthTokenProvider;
-import static com.api.utils.getEmployeeDetailID.*;
 
 import io.restassured.response.Response;
 
@@ -38,6 +40,7 @@ public class CommonAPITest {
 	private String Emp_id;
 	private String token;
 	private String employeedetailID;
+	private File file;
 
 	@BeforeClass
 	public void setup() {
@@ -46,6 +49,17 @@ public class CommonAPITest {
 		token = AuthTokenProvider.getToken(HR);
 		commonService = new CommonService();
 		employeedetailID = GetEmployeedetailID(HR);
+
+	}
+
+	@BeforeMethod
+	public void initializeFilepath(Method method) {
+		if (method.getName().equalsIgnoreCase("test_uploadImage")) {
+
+			file = new File(System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+					+ File.separator + "resources" + File.separator + "UploadFile" + File.separator
+					+ "Screenshot 2025-09-19 200857.png");
+		}
 	}
 
 	@Test
@@ -324,6 +338,39 @@ public class CommonAPITest {
 		Response response = commonService.ISFlexibleWeekoffAllowBYdept(Parsetoken(token), Emp_id, map);
 		response.then().statusCode(200).and().body("Id", (Matchers.greaterThan(0))).time(Matchers.lessThan(10000L))
 				.and().body("Id", (Matchers.notNullValue())).and().body("Name", (Matchers.notNullValue()));
+
+	}
+
+	@Test
+	public void test_getType_of_Account() {
+
+		Response response = commonService.getTypeofAccount(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).and()
+				.body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()));
+
+	}
+
+	@Test
+	public void test_getIdenityName() {
+
+		Response response = commonService.getIdentityName(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).and()
+				.body("id", Matchers.everyItem(Matchers.notNullValue())).and()
+				.body("name", Matchers.everyItem(Matchers.notNullValue()));
+
+	}
+
+	@Test
+	public void test_uploadImage() {
+
+		Map<String, Object> map11 = new HashMap<String, Object>();
+		map11.put("FileName", "image.png");
+		map11.put("file",file);
+		map11.put("DocType", "PROFILE");
+
+		Response response = commonService.UploadImage(map11, Emp_id, Parsetoken(token));
+		response.then().statusCode(200).and().time(Matchers.lessThan(10000L));
 
 	}
 

@@ -37,7 +37,25 @@ public class DepartmentService extends BaseService{
 		return getRequest(BASE_PATH + EmployeeID + "/ApprovedDepartmentList");
 
 	}
+	
+	public Response getAllDepartmentList(String token, String EmployeeID) {
 
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetAllDepartmentList");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetAllDepartmentList");
+
+	}
+
+	public Response SaveDepartmentDetails(Object payload,String EmployeeId,String token) {
+
+		setAuthtoken(token);
+		return postRequest(payload, BASE_PATH + EmployeeId+"/Department/HR");
+	}
+	
 	public Response deleteProfile(String token) {
 		setAuthtoken(token);
 
