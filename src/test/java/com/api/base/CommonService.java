@@ -284,6 +284,12 @@ public class CommonService extends BaseService {
 		return postRequestforMultiPart(BASE_PATH + EmployeeId+"/UploadFile");
 	}
 	
+	public Response Uploadfiles(String EmployeeId,String token) {
+
+		setAuthtoken(token);
+		//setMultipart(obj);
+		return postRequest(BASE_PATH + EmployeeId+"/UploadFiles");
+	}
 	
 	public Response getRequestofPlainText(String token, String EmployeeId, String Endpoint) {
 

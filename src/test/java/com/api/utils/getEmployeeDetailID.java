@@ -5,10 +5,11 @@ import com.api.models.response.JwtDecodedResponse;
 
 public class getEmployeeDetailID {
 
-	static JwtDecodedResponse decodedResponse = new JwtDecodedResponse();
+	 
 
 	public static String GetEmployeedetailID(Roles roles) {
 
+		JwtDecodedResponse decodedResponse = new JwtDecodedResponse();
 		try {
 			decodedResponse = JwtDecoder.DecodedJWTbyUSer(roles);
 			return decodedResponse.getEmploymentTypeID();

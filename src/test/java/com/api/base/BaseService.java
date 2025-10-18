@@ -37,6 +37,13 @@ public class BaseService { // wrapper for restAssured
 		return requestSpecification.contentType(ContentType.JSON).body(payload).post(endpoint);
 
 	}
+	
+	protected Response postRequest( String endpoint) {
+
+		return requestSpecification.contentType(ContentType.JSON).body("").post(endpoint);
+
+	}
+	
 
 	protected Response postRequestforMultiPart( String endpoint) {
 
