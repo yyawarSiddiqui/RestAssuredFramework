@@ -1,4 +1,4 @@
-package com.api.AssociateMasterReport;
+package com.api.test.hr;
 
 import static com.api.constant.Roles.HR;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
