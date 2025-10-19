@@ -2,16 +2,13 @@ package com.api.base;
 
 import java.util.Map;
 
-import com.api.models.request.UpdateUserProfileData;
 import com.api.models.request.patchUpdateUserProfiledata;
 
 import io.restassured.response.Response;
 
-public class DepartmentService extends BaseService{
+public class DepartmentService extends BaseService {
 
-	
 	private static final String BASE_PATH = "api/Department/";
-
 
 	public Response getRequestwithParams(String endpoint, Map<String, Object> queryParams, String token) {
 
@@ -19,12 +16,12 @@ public class DepartmentService extends BaseService{
 		return super.getRequestwithParams(endpoint, queryParams, token);
 	}
 
-	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
-		setAuthtoken(token);
-
-		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
-
-	}
+//	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
+//		setAuthtoken(token);
+//
+//		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
+//
+//	}
 
 	public Response getApprovedDepartmentList(String token, String EmployeeID) {
 
@@ -37,7 +34,7 @@ public class DepartmentService extends BaseService{
 		return getRequest(BASE_PATH + EmployeeID + "/ApprovedDepartmentList");
 
 	}
-	
+
 	public Response getAllDepartmentList(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
@@ -50,12 +47,12 @@ public class DepartmentService extends BaseService{
 
 	}
 
-	public Response SaveDepartmentDetails(Object payload,String EmployeeId,String token) {
+	public Response SaveDepartmentDetails(Object payload, String EmployeeId, String token) {
 
 		setAuthtoken(token);
-		return postRequest(payload, BASE_PATH + EmployeeId+"/Department/HR");
+		return postRequest(payload, BASE_PATH + EmployeeId + "/Department/HR");
 	}
-	
+
 	public Response deleteProfile(String token) {
 		setAuthtoken(token);
 

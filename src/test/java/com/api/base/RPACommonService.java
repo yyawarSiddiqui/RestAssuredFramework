@@ -5,7 +5,6 @@ import static com.api.utils.JwtDecoder.DecodedJWTbyUSer;
 
 import java.util.Map;
 
-import com.api.models.request.UpdateUserProfileData;
 import com.api.models.request.patchUpdateUserProfiledata;
 import com.api.models.response.JwtDecodedResponse;
 
@@ -43,12 +42,12 @@ public class RPACommonService extends BaseService {
 		return super.getRequestwithParams(endpoint, queryParams, token);
 	}
 
-	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
-		setAuthtoken(token);
-
-		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
-
-	}
+//	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
+//		setAuthtoken(token);
+//
+//		return putRequest(updateUserProfileData, BASE_PATH + "/profile");
+//
+//	}
 
 	public Response deleteProfile(String token) {
 		setAuthtoken(token);
