@@ -1,6 +1,6 @@
 package com.api.test.IT;
 
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.IT;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 
 import org.hamcrest.Matchers;
@@ -23,8 +23,8 @@ public class AssociateMasterReportTest {
 		Map<String, Object> values=new HashMap<String,Object>();
 		values.put("userType", "ADM");
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(IT);
+		String token = AuthTokenProvider.getToken(IT);
 		AssociateMasterReportService associateMasterReportService = new AssociateMasterReportService();
 		Response response = associateMasterReportService.getAssociateMasterColumntoView(Parsetoken(token), Emp_id,values);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))

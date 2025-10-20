@@ -1,6 +1,6 @@
 package com.api.test.admin;
 
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ADMIN;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 
@@ -17,8 +17,8 @@ public class ClientTest {
 	@Test
 	public void getClient() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ADMIN);
+		String token = AuthTokenProvider.getToken(ADMIN);
 		ClientService clientService = new ClientService();
 		Response response = clientService.getClient(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))

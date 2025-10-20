@@ -1,5 +1,5 @@
 package com.api.test.account;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ACCOUNT;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 
@@ -19,8 +19,8 @@ public class ProjectServiceTest {
 	@Test
 	public void getProjectsByEmployee() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ACCOUNT);
+		String token = AuthTokenProvider.getToken(ACCOUNT);
 		ProjectService projectService = new ProjectService();
 		Response response = projectService.getProjectsByEMPid(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))

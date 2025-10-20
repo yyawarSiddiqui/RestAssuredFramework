@@ -1,5 +1,5 @@
 package com.api.test.account;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ACCOUNT;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import org.hamcrest.Matchers;
@@ -13,8 +13,8 @@ public class LeaveApplicationServiceTest {
 	@Test
 	public void test_getAttendanceMonth() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ACCOUNT);
+		String token = AuthTokenProvider.getToken(ACCOUNT);
 		LeaveApplicationService leaveApplicationService = new LeaveApplicationService();
 		Response response = leaveApplicationService.getAttendanceMonth(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("attMonth", Matchers.greaterThanOrEqualTo(0));

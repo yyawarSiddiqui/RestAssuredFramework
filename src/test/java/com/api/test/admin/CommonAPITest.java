@@ -3,7 +3,7 @@ import static com.api.base.CommonService.ENDPOINT_GetAllEMPLOYEE;
 import static com.api.base.CommonService.ENDPOINT_GetAllReportingMgr;
 import static com.api.base.CommonService.ENDPOINT_RRF_GET_ROLEWISE_TITLE;
 import static com.api.base.CommonService.getBasePath;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ADMIN;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import static com.api.utils.getEmployeeDetailID.GetEmployeedetailID;
@@ -44,10 +44,10 @@ public class CommonAPITest {
 	@BeforeClass
 	public void setup() {
 
-		Emp_id = getEmployeeID(HR);
-		token = AuthTokenProvider.getToken(HR);
+		Emp_id = getEmployeeID(ADMIN);
+		token = AuthTokenProvider.getToken(ADMIN);
 		commonService = new CommonService();
-		employeedetailID = GetEmployeedetailID(HR);
+		employeedetailID = GetEmployeedetailID(ADMIN);
 
 	}
 

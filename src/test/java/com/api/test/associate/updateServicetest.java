@@ -1,5 +1,5 @@
 package com.api.test.associate;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ASSOCIATE;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import static com.api.utils.getEmployeeDetailID.GetEmployeedetailID;
@@ -30,10 +30,10 @@ public class updateServicetest {
 
 	@BeforeClass
 	public void setup() {
-		decodedResponse = JwtDecoder.DecodedJWTbyUSer(HR);
-		Emp_id = getEmployeeID(HR);
-		token = AuthTokenProvider.getToken(HR);
-		employeedetailID = GetEmployeedetailID(HR);
+		decodedResponse = JwtDecoder.DecodedJWTbyUSer(ASSOCIATE);
+		Emp_id = getEmployeeID(ASSOCIATE);
+		token = AuthTokenProvider.getToken(ASSOCIATE);
+		employeedetailID = GetEmployeedetailID(ASSOCIATE);
 		updateprofile = new UpdateProfileService();
 	}
 

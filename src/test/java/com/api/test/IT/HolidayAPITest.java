@@ -1,5 +1,5 @@
 package com.api.test.IT;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.IT;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import static org.testng.Assert.assertNotEquals;
@@ -26,8 +26,8 @@ public class HolidayAPITest {
 	@Test
 	public void test_getDepartments() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(IT);
+		String token = AuthTokenProvider.getToken(IT);
 		HolidayService holiday = new HolidayService();
 		Response response = holiday.getDepartments(Parsetoken(token), Emp_id);
 
@@ -45,8 +45,8 @@ public class HolidayAPITest {
 	@Test
 	public void test__getHoliday() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(IT);
+		String token = AuthTokenProvider.getToken(IT);
 		HolidayService holiday = new HolidayService();
 		Response response = holiday.getHolidays(Parsetoken(token), Emp_id);
 
@@ -68,8 +68,8 @@ public class HolidayAPITest {
 
 		Map<String,Object> queryParams=new HashMap<String, Object>();
 		queryParams.put("FAC", 0);
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(IT);
+		String token = AuthTokenProvider.getToken(IT);
 		HolidayService holiday = new HolidayService();
 		Response response = holiday.getRequestwithParams(getBasePath()+Emp_id+ENDPOINT_GETLOCATIONS, queryParams, Parsetoken(token));
 

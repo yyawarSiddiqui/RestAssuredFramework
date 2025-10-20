@@ -1,6 +1,6 @@
 package com.api.test.associate;
 import static com.api.base.ListAssociateService.get_Employee_Basicdetail_EndPoint;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ASSOCIATE;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import static com.api.utils.getEmployeeDetailID.GetEmployeedetailID;
@@ -49,17 +49,17 @@ public class ListAssociateServiceTest {
 	@BeforeClass
 	public void setup() {
 
-		Emp_id = getEmployeeID(HR);
-		token = AuthTokenProvider.getToken(HR);
+		Emp_id = getEmployeeID(ASSOCIATE);
+		token = AuthTokenProvider.getToken(ASSOCIATE);
 		listAssociate = new ListAssociateService();
-		employeedetailID = GetEmployeedetailID(HR);
+		employeedetailID = GetEmployeedetailID(ASSOCIATE);
 	}
 
 	@Test
 	public void test_getListofAssociate() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ASSOCIATE);
+		String token = AuthTokenProvider.getToken(ASSOCIATE);
 		ListAssociateService listAssociateService = new ListAssociateService();
 		Response response = listAssociateService.getListofAssociate(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
@@ -74,8 +74,8 @@ public class ListAssociateServiceTest {
 	@Test
 	public void test_getRoleHistoryDLL() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ASSOCIATE);
+		String token = AuthTokenProvider.getToken(ASSOCIATE);
 		ListAssociateService listAssociateService = new ListAssociateService();
 		Response response = listAssociateService.getRoleHistoryDLL(Parsetoken(token), Emp_id);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThan(0)))
@@ -91,8 +91,8 @@ public class ListAssociateServiceTest {
 	public void test_getEmployeeBasicDetail() {
 
 		Map<String, Object> map1 = new HashMap<String, Object>();
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ASSOCIATE);
+		String token = AuthTokenProvider.getToken(ASSOCIATE);
 		map1.put("employeeid", Emp_id);
 		ListAssociateService listAssociateService = new ListAssociateService();
 		Response response = listAssociateService.getRequestofPlainText(Parsetoken(token), Emp_id,
@@ -107,8 +107,8 @@ public class ListAssociateServiceTest {
 
 		Map<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("AssociateTypeID", associateTypeId);
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ASSOCIATE);
+		String token = AuthTokenProvider.getToken(ASSOCIATE);
 		ListAssociateService listAssociateService = new ListAssociateService();
 		Response response = listAssociateService.getContractCommitment(Parsetoken(token), Emp_id, map2);
 		response.then().statusCode(200).and().body("", Matchers.hasSize(Matchers.greaterThanOrEqualTo(0)))
@@ -228,7 +228,7 @@ public class ListAssociateServiceTest {
 	}
 
 	@Test(dataProvider = "CommitmentandAssociateTypeids")
-	public void test_GetMinimumCommitmentHrs(int associateid, int commitmentids) {
+	public void test_GetMinimumCommitmentASSOCIATEs(int associateid, int commitmentids) {
 
 		Map<String, Object> map3 = new HashMap<String, Object>();
 		map3.put("Associatetypeid", associateid);

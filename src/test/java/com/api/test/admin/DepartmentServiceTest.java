@@ -1,5 +1,5 @@
 package com.api.test.admin;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ADMIN;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import static org.testng.Assert.assertNotEquals;
@@ -26,8 +26,8 @@ public class DepartmentServiceTest {
 				{ DepartmentCreationData.builder().functionId(5).functionName("Accounts123").functionCategory("General")
 						.functionCode("AC123").departmentEmail("vishnu.gupta@impressico.com").isUsedInTicket(2)
 						.isUsedInAMS(false).isFlexibleWeeklyOff(null).active(true).build() },
-				{ DepartmentCreationData.builder().functionId(1017).functionName("HR213").functionCategory("Admin")
-						.functionCode("HR1223").departmentEmail("hr.team@impessico.com").isUsedInTicket(1)
+				{ DepartmentCreationData.builder().functionId(1017).functionName("ADMIN213").functionCategory("Admin")
+						.functionCode("ADMIN1223").departmentEmail("ADMIN.team@impessico.com").isUsedInTicket(1)
 						.isUsedInAMS(true).isFlexibleWeeklyOff(false).active(true).build() }
 
 		};
@@ -36,8 +36,8 @@ public class DepartmentServiceTest {
 	@Test
 	public void getApprovedDepartmentList_test() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ADMIN);
+		String token = AuthTokenProvider.getToken(ADMIN);
 
 		DepartmentService departmentService = new DepartmentService();
 		Response response = departmentService.getApprovedDepartmentList(Parsetoken(token), Emp_id);
@@ -56,8 +56,8 @@ public class DepartmentServiceTest {
 	@Test()
 	public void getAllDepartment_test() {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ADMIN);
+		String token = AuthTokenProvider.getToken(ADMIN);
 
 		DepartmentService departmentService = new DepartmentService();
 		Response response = departmentService.getAllDepartmentList(Parsetoken(token), Emp_id);
@@ -71,8 +71,8 @@ public class DepartmentServiceTest {
 	@Test(dataProvider = "departmentData")
 	public void createDepartment_test(DepartmentCreationData creationData) {
 
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ADMIN);
+		String token = AuthTokenProvider.getToken(ADMIN);
 		DepartmentService departmentService = new DepartmentService();
 
 		Response response = departmentService.SaveDepartmentDetails(creationData, Emp_id, Parsetoken(token));

@@ -59,7 +59,7 @@ public class rrfServicetest {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("StatusID", 1);
 		queryParams.put("FAC", 1);
-		String token = AuthTokenProvider.getToken(Roles.HR);
+		String token = AuthTokenProvider.getToken(Roles.ADMIN);
 		RecruitmentRequestFormRRFService RRFService = new RecruitmentRequestFormRRFService(token);
 
 		Response response = RRFService.getRequestwithParams(
@@ -85,7 +85,7 @@ public class rrfServicetest {
 
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("RRFID", id);
-		String token = AuthTokenProvider.getToken(Roles.HR);
+		String token = AuthTokenProvider.getToken(Roles.ADMIN);
 		RecruitmentRequestFormRRFService RRFService = new RecruitmentRequestFormRRFService(token);
 
 		Response response = RRFService.getRequestwithParams(

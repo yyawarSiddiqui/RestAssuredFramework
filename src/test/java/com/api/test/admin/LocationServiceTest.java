@@ -1,5 +1,5 @@
 package com.api.test.admin;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ADMIN;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -24,8 +24,8 @@ public class LocationServiceTest {
 		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("isactive", true);
 		
-		String Emp_id = getEmployeeID(HR);
-		String token = AuthTokenProvider.getToken(HR);
+		String Emp_id = getEmployeeID(ADMIN);
+		String token = AuthTokenProvider.getToken(ADMIN);
 
 		LocationService locationService = new LocationService();
 		Response response = locationService.getLocationList(Parsetoken(token), Emp_id, map);

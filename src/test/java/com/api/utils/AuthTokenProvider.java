@@ -42,6 +42,12 @@ public class AuthTokenProvider {
 			loginRequest = new LoginRequest("INEMP000228", "ibs#2020");
 
 		}
+		
+		else if (Role == Roles.RM) {
+
+			loginRequest = new LoginRequest("INEMP000228", "ibs#2020");
+
+		}
 
 		AuthService authService = new AuthService();
 		Response response = authService.login(loginRequest);

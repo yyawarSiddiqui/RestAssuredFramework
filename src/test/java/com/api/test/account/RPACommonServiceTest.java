@@ -1,5 +1,5 @@
 package com.api.test.account;
-import static com.api.constant.Roles.HR;
+import static com.api.constant.Roles.ACCOUNT;
 import static com.api.utils.ParseToken.Parsetoken;
 
 import org.hamcrest.Matchers;
@@ -15,7 +15,7 @@ public class RPACommonServiceTest {
 	@Test
 	public void test_GetAllReportingMagaer() {
 
-		String token = AuthTokenProvider.getToken(HR);
+		String token = AuthTokenProvider.getToken(ACCOUNT);
 		RPACommonService RPACommonService = new RPACommonService();
 
 		Response response = RPACommonService.getHiringLocationbyEMP(Parsetoken(token));
@@ -29,7 +29,7 @@ public class RPACommonServiceTest {
 	@Test
 	public void test_Get_Hiring_Location() {
 
-		String token = AuthTokenProvider.getToken(HR);
+		String token = AuthTokenProvider.getToken(ACCOUNT);
 		RPACommonService RPACommonService = new RPACommonService();
 
 		Response response = RPACommonService.getHiringLocationbyEMP(Parsetoken(token));
