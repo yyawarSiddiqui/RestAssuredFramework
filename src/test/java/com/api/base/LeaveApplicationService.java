@@ -10,6 +10,7 @@ public class LeaveApplicationService extends BaseService{
 
 	
 	private static final String BASE_PATH = "api/LeaveApplication/";
+	private static final String Endpoint_GetLeaveApplicationDetails = "/api/LeaveApplication";
 
 
 	public Response getRequestwithParams(String endpoint, Map<String, Object> queryParams, String token) {
@@ -26,6 +27,18 @@ public class LeaveApplicationService extends BaseService{
 //	}
 
 	public Response getAttendanceMonth(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/AttendanceMonth");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/AttendanceMonth");
+
+	}
+	
+	public Response etLeaveApplicationDetails(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
 

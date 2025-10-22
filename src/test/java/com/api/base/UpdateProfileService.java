@@ -105,6 +105,7 @@ public class UpdateProfileService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetMinimumCommitmentHrs");
 
 	}
+	
 
 	public Response SaveEmployeeDetails(Object payload, String EmployeeId, String token) {
 

@@ -18,6 +18,7 @@ import com.api.models.request.UpdateProfileRequest;
 import com.api.models.response.EmployeeDetailsResponse;
 import com.api.models.response.JwtDecodedResponse;
 import com.api.utils.AuthTokenProvider;
+import static com.api.utils.FakerdataCreation.*;
 import com.api.utils.JwtDecoder;
 
 import io.restassured.response.Response;
@@ -80,22 +81,23 @@ public class updateServicetest {
 		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).body("[0].EmployeeID",
 				Matchers.equalTo((Integer.parseInt(Emp_id))));
 
-		// List<GetExperience> list = response.jsonPath().getList("",
-		// GetExperience.class);
-
 	}
 
-	@Test
+	@Test(groups = "Update Associate Details")
 	public void test_UpdateAssociateDetails() {
 
-		UpdateProfileRequest updateProfile = UpdateProfileRequest.builder()
-				.associateBasicInfoDetails(AssociateBasicInfoDetails.builder().employeeName("Akansha").dob("1987-03-15").sex("F").build()).build();
+		UpdateProfileRequest updateProfile = UpdateProfileRequest.builder().basicInfoUpdateNotes("test")
+				.employeeId(Emp_id).isAcademicDetailsUpdated(false).isAcademicDetailsUpdated(false)
+				.isAddressUpdated(false).isBankDetailsUpdated(false).isAddressUpdated(false).isBankDetailsUpdated(false)
+				.isBasicInfoUpdated(false).isEmployeeDependantUpdated(false).isEmployeeDesignationUpdated(false)
+				.isEmployeeIdentityUpdated(false).isEmployementHistoryUpdated(false).isTechnologyUpdated(false).updateProfileId(6691)
+				.associateBasicInfoDetails(AssociateBasicInfoDetails.builder().employeeName(getFullName())
+						.dob("1987-03-15").sex("F").maritalStatus("Married").primaryEmailId(getEmail())
+						.primaryContactNumber(getPhoneNumber()).allowTimeSheet(0).assignedManagerId(4657).build())
+				.build();
 		Response response = updateprofile.UpdateAssociateDetails(updateProfile, Emp_id, Parsetoken(token));
-		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).body("[0].EmployeeID",
-				Matchers.equalTo((Integer.parseInt(Emp_id))));
-
-		// List<GetExperience> list = response.jsonPath().getList("",
-		// GetExperience.class);
+		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).body("message",
+				Matchers.equalTo("Update profile request has been sent to HR for approval."));
 
 	}
 

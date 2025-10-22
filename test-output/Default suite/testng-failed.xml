@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.api.UpdateServiceTest.updateServicetest">
+      <class name="com.api.test.hr.LeaveApplicationServiceTest">
         <methods>
-          <include name="test_UpdateAssociateDetails"/>
           <include name="setup"/>
+          <include name="test_getAttendaneMonth"/>
         </methods>
-      </class> <!-- com.api.UpdateServiceTest.updateServicetest -->
+      </class> <!-- com.api.test.hr.LeaveApplicationServiceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

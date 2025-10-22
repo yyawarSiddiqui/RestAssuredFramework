@@ -96,6 +96,23 @@ public class BaseService { // wrapper for restAssured
 	    }
 	    return requestSpecification;
 	}
+	
+	protected RequestSpecification setHeaderswithinstance(Map<String, Object> parts) {
+	    for (Map.Entry<String, Object> entry : parts.entrySet()) {
+	        Object value = entry.getValue();
+
+	        if (value instanceof Integer) {
+	            requestSpecification.queryParam(entry.getKey(), (int) value);
+	        } else if (value instanceof String) {
+	            requestSpecification.queryParam(entry.getKey(), value.toString());
+	        } else if (value instanceof Boolean) {
+	            requestSpecification.queryParam(entry.getKey(), (Boolean)value);
+	        } else {
+	            throw new IllegalArgumentException("Unsupported multipart type for key: " + entry.getKey());
+	        }
+	    }
+	    return requestSpecification;
+	}
 
 
 
