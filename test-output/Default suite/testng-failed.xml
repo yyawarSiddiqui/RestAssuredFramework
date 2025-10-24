@@ -5,8 +5,8 @@
     <classes>
       <class name="com.api.test.hr.LeaveApplicationServiceTest">
         <methods>
+          <include name="test_GetLeaveApprovaData"/>
           <include name="setup"/>
-          <include name="test_getAttendaneMonth"/>
         </methods>
       </class> <!-- com.api.test.hr.LeaveApplicationServiceTest -->
     </classes>

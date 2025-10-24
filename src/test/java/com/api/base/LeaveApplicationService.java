@@ -4,19 +4,24 @@ import java.util.Map;
 
 import com.api.models.request.patchUpdateUserProfiledata;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class LeaveApplicationService extends BaseService{
+public class LeaveApplicationService extends BaseService {
 
-	
 	private static final String BASE_PATH = "api/LeaveApplication/";
-	private static final String Endpoint_GetLeaveApplicationDetails = "/api/LeaveApplication";
-
+	private static final String Endpoint_GetLeaveApplicationDetails = "";
 
 	public Response getRequestwithParams(String endpoint, Map<String, Object> queryParams, String token) {
 
 		setAuthtoken(token);
 		return super.getRequestwithParams(endpoint, queryParams, token);
+	}
+	
+	public Response AddUpdateLeaveApplication(Object payload,String EmployeeId,String token) {
+
+		setAuthtoken(token);
+		return postRequest(payload, BASE_PATH + EmployeeId+"/AddUpdateLeaveApplication");
 	}
 
 //	public Response modifyProfile(String token, UpdateUserProfileData updateUserProfileData) {
@@ -26,7 +31,81 @@ public class LeaveApplicationService extends BaseService{
 //
 //	}
 
-	public Response getAttendanceMonth(String token, String EmployeeID) {
+	public Response getEmpMgrDetails(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/EmpMgrDetails");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/EmpMgrDetails");
+
+	}
+
+	public Response getLeaveType(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/BindLeaveType");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/BindLeaveType");
+
+	}
+
+	public Response getLeaveAdjustmentCategory(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/LeaveAdjustmentCategory");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/LeaveAdjustmentCategory");
+
+	}
+	
+	public Response getLeaveMsg(String token, String EmployeeID, Map<String, Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/ShowLeaveMessage");
+		}
+
+		setHeaderswithinstanceWithHeader(headers);
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/ShowLeaveMessage");
+
+	}
+	
+	public Response getLeaveAdjustmentReport(String token, String EmployeeID, Map<String, Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/LeaveAdjustmentReport");
+		}
+
+		setHeaderswithinstanceWithHeader(headers);
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/LeaveAdjustmentReport");
+
+	}
+
+	public Response getLeaveAdjustmentType(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/LeaveAdjustmentType");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/LeaveAdjustmentType");
+
+	}
+	
+	public Response getAttandanceMonth(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
 
@@ -38,15 +117,40 @@ public class LeaveApplicationService extends BaseService{
 
 	}
 	
-	public Response etLeaveApplicationDetails(String token, String EmployeeID) {
+	public Response get_LeaveAdjustmentReport(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {
 
-			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/AttendanceMonth");
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/LeaveAdjustmentReport");
 		}
 
 		setAuthtoken(token);
-		return getRequest(BASE_PATH + EmployeeID + "/AttendanceMonth");
+		return getRequest(BASE_PATH + EmployeeID + "/LeaveAdjustmentReport");
+
+	}
+	
+	public Response get_LeaveStatus(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetLeaveStatus");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetLeaveStatus");
+
+	}
+	
+	public Response get_LeaveApprovalData(String token, String EmployeeID,Map<String,Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/LeaveApprovalData");
+		}
+
+		setAuthtoken(token);
+		setHeaders(headers);
+		return getRequest(BASE_PATH + EmployeeID + "/LeaveApprovalData");
 
 	}
 

@@ -36,7 +36,7 @@ public class ExtensionService extends BaseService {
 			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetExtensionList");
 		}
 
-		setHeaderswithinstance(headers);
+		setHeaderswithinstanceQueryParam(headers);
 		setAuthtoken(token);
 		return getRequest(BASE_PATH + EmployeeID + "/GetExtensionList");
 

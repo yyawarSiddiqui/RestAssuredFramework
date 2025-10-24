@@ -1,18 +1,14 @@
 package com.api.test.hr;
 
 import static com.api.constant.Roles.HR;
-import static com.api.utils.FakerdataCreation.getRandomString;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
 import static com.api.utils.ParseToken.Parsetoken;
 
 import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.api.base.ConsolidateAttendanceReport;
-import com.api.base.RoleMaster;
-import com.api.models.request.Employee;
 import com.api.utils.AuthTokenProvider;
 
 import io.restassured.response.Response;
