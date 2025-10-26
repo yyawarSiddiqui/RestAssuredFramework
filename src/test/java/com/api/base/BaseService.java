@@ -1,11 +1,11 @@
 package com.api.base;
 
-import com.api.filters.LoggingFilter;
-import static com.api.utils.ConfigManager2.*;
+import static com.api.utils.ConfigManager2.getProperty;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
+
+import com.api.filters.LoggingFilter;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
