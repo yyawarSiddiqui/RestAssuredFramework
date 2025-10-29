@@ -19,5 +19,5 @@ public class Employee {
 	private String projectRole;
 
 	@JsonProperty("isActive")
-	private Boolean isActive; // Boolean to allow null
+	private Boolean isActive; 
 }

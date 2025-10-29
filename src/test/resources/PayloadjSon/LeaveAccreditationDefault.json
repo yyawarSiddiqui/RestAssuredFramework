@@ -1,0 +1,420 @@
+{
+	"SupportStaffLeaveAccrediationDisavled": true,
+	"LeaveAllocationJoiningList": [
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 4,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 4,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 4,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 4,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 1,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "2.000"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 1,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "1.50"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 1,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "1.00"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 1,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "0.50"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 2,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "1.00"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 2,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "0.75"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 2,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "0.50"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 2,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "0.25"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 3,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 3,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 3,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 3,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		}
+	],
+	"LeaveAllocationLeavingList": [
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 4,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 4,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 4,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 4,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Contract Through Entity",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 1,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "0.50"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 1,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "1.00"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 1,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "1.50"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 1,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Employee",
+			"LeaveAllocation": "2.00"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 2,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "0.25"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 2,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "0.50"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 2,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "0.75"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 2,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Full time Contractor ",
+			"LeaveAllocation": "1.000"
+		},
+		{
+			"JoiningSlotId": 4,
+			"AssociateTypeId": 3,
+			"StartDay": 1,
+			"EndDay": 7,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 3,
+			"AssociateTypeId": 3,
+			"StartDay": 8,
+			"EndDay": 15,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 2,
+			"AssociateTypeId": 3,
+			"StartDay": 16,
+			"EndDay": 23,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"JoiningSlotId": 1,
+			"AssociateTypeId": 3,
+			"StartDay": 24,
+			"EndDay": 31,
+			"AssociateType": "Part time Contractor",
+			"LeaveAllocation": "0.00"
+		}
+	],
+	"MaximumPLCarryForwardYearlyList": [
+		{
+			"AssociateTypeId": 4,
+			"AssociateType": "Contract Through Entity",
+			"CarryFwrdLeaveYearly": "0.00",
+			"LeaveCarryFwrdId": 1
+		},
+		{
+			"AssociateTypeId": 1,
+			"AssociateType": "Employee",
+			"CarryFwrdLeaveYearly": "12.00",
+			"LeaveCarryFwrdId": 2
+		},
+		{
+			"AssociateTypeId": 2,
+			"AssociateType": "Full time Contractor ",
+			"CarryFwrdLeaveYearly": "0.00",
+			"LeaveCarryFwrdId": 3
+		},
+		{
+			"AssociateTypeId": 3,
+			"AssociateType": "Part time Contractor",
+			"CarryFwrdLeaveYearly": "0.00",
+			"LeaveCarryFwrdId": 4
+		}
+	],
+	"TotalPLCarryForwardYearlyList": [
+		{
+			"AssociateTypeId": 4,
+			"AssociateType": "Contract Through Entity",
+			"TotalFwrdLeaveYearly": "0",
+			"TotalLeaveCarryFwrdId": 1
+		},
+		{
+			"AssociateTypeId": 1,
+			"AssociateType": "Employee",
+			"TotalFwrdLeaveYearly": "20",
+			"TotalLeaveCarryFwrdId": 2
+		},
+		{
+			"AssociateTypeId": 2,
+			"AssociateType": "Full time Contractor ",
+			"TotalFwrdLeaveYearly": "0",
+			"TotalLeaveCarryFwrdId": 3
+		},
+		{
+			"AssociateTypeId": 3,
+			"AssociateType": "Part time Contractor",
+			"TotalFwrdLeaveYearly": "0",
+			"TotalLeaveCarryFwrdId": 4
+		}
+	],
+	"MonthlyWorkingHoursList": [
+		{
+			"AssociateTypeId": 4,
+			"AssociateType": "Contract Through Entity",
+			"MonthlyWorkingHrs": "0.00",
+			"WorkingHourId": 1
+		},
+		{
+			"AssociateTypeId": 1,
+			"AssociateType": "Employee",
+			"MonthlyWorkingHrs": "160.00",
+			"WorkingHourId": 2
+		},
+		{
+			"AssociateTypeId": 2,
+			"AssociateType": "Full time Contractor ",
+			"MonthlyWorkingHrs": "160.00",
+			"WorkingHourId": 3
+		},
+		{
+			"AssociateTypeId": 3,
+			"AssociateType": "Part time Contractor",
+			"MonthlyWorkingHrs": "80.00",
+			"WorkingHourId": 4
+		}
+	],
+	"MaximumContinuousLeavesList": [
+		{
+			"AssociateTypeId": 4,
+			"AssociateType": "Contract Through Entity",
+			"ContinuousLeave": "0",
+			"ContinuousLeaveId": 1
+		},
+		{
+			"AssociateTypeId": 1,
+			"AssociateType": "Employee",
+			"ContinuousLeave": "5",
+			"ContinuousLeaveId": 2
+		},
+		{
+			"AssociateTypeId": 2,
+			"AssociateType": "Full time Contractor ",
+			"ContinuousLeave": "5",
+			"ContinuousLeaveId": 3
+		},
+		{
+			"AssociateTypeId": 3,
+			"AssociateType": "Part time Contractor",
+			"ContinuousLeave": "0",
+			"ContinuousLeaveId": 4
+		}
+	],
+	"MaternityLeavesList": [
+		{
+			"MaternityLeaveId": 1,
+			"LeaveDuration": "WEEK",
+			"Value": "26.00"
+		}
+	],
+	"CompOffDetailsList": [
+		{
+			"CompOffLeaveAllocId": 1,
+			"MinHour": 0,
+			"MaxHour": 2.25,
+			"LeaveAllocation": "0.00"
+		},
+		{
+			"CompOffLeaveAllocId": 2,
+			"MinHour": 2.26,
+			"MaxHour": 4.5,
+			"LeaveAllocation": "0.25"
+		},
+		{
+			"CompOffLeaveAllocId": 3,
+			"MinHour": 4.51,
+			"MaxHour": 6.75,
+			"LeaveAllocation": "0.50"
+		},
+		{
+			"CompOffLeaveAllocId": 4,
+			"MinHour": 6.76,
+			"MaxHour": 8.99,
+			"LeaveAllocation": "1.00"
+		},
+		{
+			"CompOffLeaveAllocId": 5,
+			"MinHour": 9,
+			"MaxHour": 24,
+			"LeaveAllocation": "1.00"
+		}
+	],
+	"ShortServiceDetailsList": [
+		{
+			"ShtSerLeaveAllocId": 1,
+			"MinHour": 0.01,
+			"MaxHour": 4.5,
+			"LeaveAllocation": "0.50"
+		},
+		{
+			"ShtSerLeaveAllocId": 2,
+			"MinHour": 4.51,
+			"MaxHour": 9,
+			"LeaveAllocation": "1.00"
+		}
+	]
+}

@@ -5,7 +5,7 @@
 	<test name="API Test Cases">
 		<packages>
 			<!-- Specify the base package containing your API test classes -->
-			<package name="com.api.test.hr" />
+			<package name="com.api.test.LeaveApplicationServiceTest" />
 		</packages>
 	</test>
 

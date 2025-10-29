@@ -14,6 +14,10 @@ public class DateUtility {
 	public static String getTodayDate() {
 		return LocalDate.now().format(FORMATTER);
 	}
+	
+	public static String getdatebyInput(int year,int month, int date) {
+		return LocalDate.of(year, month, date).format(FORMATTER);
+	}
 
 	/**
 	 * Returns a date N days from today in yyyy-MM-dd format. Use negative value for

@@ -381,4 +381,24 @@ public class CommonAPITest {
 		response.then().statusCode(200).and().time(Matchers.lessThan(10000L));
 
 	}
+	
+	@Test
+	public void test_TimeZone() {
+
+		Response response = commonService.getTimeZone(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).and()
+				.body("", Matchers.everyItem(Matchers.hasKey("id"))).and()
+				.body("", Matchers.everyItem(Matchers.hasKey("name")));
+
+	}
+	
+	@Test
+	public void test_getDays() {
+
+		Response response = commonService.getDays(Parsetoken(token), Emp_id);
+		response.then().statusCode(200).and().time(Matchers.lessThan(10000L)).and()
+				.body("", Matchers.everyItem(Matchers.hasKey("id"))).and()
+				.body("", Matchers.everyItem(Matchers.hasKey("name")));
+
+	}
 }

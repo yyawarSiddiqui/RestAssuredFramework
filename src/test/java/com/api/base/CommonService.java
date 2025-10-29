@@ -5,7 +5,6 @@ import java.util.Map;
 import com.api.models.request.patchUpdateUserProfiledata;
 import com.api.models.response.JwtDecodedResponse;
 
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class CommonService extends BaseService {
@@ -273,6 +272,30 @@ public class CommonService extends BaseService {
 
 		setAuthtoken(token);
 		return getRequest(BASE_PATH + EmployeeID + "/GetIdentityName");
+
+	}
+	
+	public Response getTimeZone(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/TimeZoneDD");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/TimeZoneDD");
+
+	}
+	
+	public Response getDays(String token, String EmployeeID) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetDays");
+		}
+
+		setAuthtoken(token);
+		return getRequest(BASE_PATH + EmployeeID + "/GetDays");
 
 	}
 	
