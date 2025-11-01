@@ -10,7 +10,6 @@ public class LocationService extends BaseService {
 
 	private static final String BASE_PATH = "api/Location/";
 
-
 	public Response getRequestwithParams(String endpoint, Map<String, Object> queryParams, String token) {
 
 		setAuthtoken(token);
@@ -24,7 +23,7 @@ public class LocationService extends BaseService {
 //
 //	}
 
-	public Response getLocationList(String token, String EmployeeID,Map<String,Object> val) {
+	public Response getLocationList(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
 
@@ -49,6 +48,12 @@ public class LocationService extends BaseService {
 
 		return patchRequest(patchUpdateUserProfiledata, BASE_PATH + "/profile");
 
+	}
+	
+	public Response SaveEmployeeDetails(Object payload,String EmployeeId,String token) {
+
+		setAuthtoken(token);
+		return postRequest(payload, BASE_PATH + EmployeeId+"/SaveEmployeeBasicDetailsCTE");
 	}
 
 	public static String getBasePath() {

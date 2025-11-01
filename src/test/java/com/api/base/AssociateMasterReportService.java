@@ -41,6 +41,19 @@ public class AssociateMasterReportService extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/AssociateMasterColumnsToView");
 
 	}
+	
+	public Response getAssociateMasterReport(String token, String EmployeeID, Map<String,Object> headers ) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetAssociateMasterReport/ADM");
+		}
+
+		setAuthtoken(token);
+		setHeaders(headers);
+		return getRequest(BASE_PATH + EmployeeID + "/GetAssociateMasterReport/ADM");
+
+	}
 
 	public Response getRequestofPlainText(String token, String EmployeeId) {
 

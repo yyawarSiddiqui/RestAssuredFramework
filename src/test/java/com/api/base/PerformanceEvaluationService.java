@@ -43,6 +43,32 @@ public class PerformanceEvaluationService extends BaseService {
 
 	}
 	
+	public Response GetEmployeePerformance(String token, String EmployeeID, Map<String, Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetEmployeePerformance");
+		}
+
+		setAuthtoken(token);
+		setHeaders(headers);
+		return getRequest(BASE_PATH + EmployeeID + "/GetAssociates/HR");
+
+	}
+	
+	public Response GetAssociateBYHR(String token, String EmployeeID, Map<String, Object> headers) {
+
+		if (token == null || token.isEmpty()) {
+
+			return getRequestWithoutAuth(BASE_PATH + EmployeeID + "/GetAssociates/HR");
+		}
+
+		setAuthtoken(token);
+		setHeaders(headers);
+		return getRequest(BASE_PATH + EmployeeID + "/GetAssociates/HR");
+
+	}
+	
 	public Response MyMeetingRoomList(String token, String EmployeeID) {
 
 		if (token == null || token.isEmpty()) {

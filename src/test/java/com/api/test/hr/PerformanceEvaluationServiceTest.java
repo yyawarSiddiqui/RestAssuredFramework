@@ -57,7 +57,7 @@ public class PerformanceEvaluationServiceTest {
 	}
 
 	@Test(dataProvider = "AllCombinations")
-	public void GetPendingPerformanceEvaluationData(Boolean IsSelfiRating, int status) {
+	public void test_GetPendingPerformanceEvaluationData(Boolean IsSelfiRating, int status) {
 
 		Map<String, Object> headers = new HashMap<String, Object>();
 		headers.put("isselfrating", IsSelfiRating);
@@ -76,6 +76,51 @@ public class PerformanceEvaluationServiceTest {
 			response.then().body("", Matchers.everyItem(Matchers.hasKey("EmployeeID")));
 			response.then().body("", Matchers.everyItem(Matchers.hasKey("Status")));
 			response.then().body("", Matchers.everyItem(Matchers.hasKey("StatusValue")));
+		}
+
+	}
+
+	@Test
+	public void test_GetEmployeePerformance() {
+
+		Map<String, Object> headers = new HashMap<String, Object>();
+		headers.put("managerid", "");
+		headers.put("month", 7);
+		headers.put("year", 2025);
+
+		Response response = evaluationService.GetEmployeePerformance(Parsetoken(token), Emp_id, headers);
+		response.then().statusCode(200).and().time(Matchers.lessThan(5000L));
+
+		if (!response.getBody().asString().isEmpty()) {
+
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("EmployeeName")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("Availability")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("EmployeeId")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("Communication")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("RowID")));
+		}
+
+	}
+	
+	@Test
+	public void test_GetAssociateHR() {
+
+		Map<String, Object> headers = new HashMap<String, Object>();
+		headers.put("managerid", "");
+		headers.put("month", 7);
+		headers.put("year", 2025);
+
+		PerformanceEvaluationService evaluationService = new PerformanceEvaluationService();
+		Response response = evaluationService.GetAssociateBYHR(Parsetoken(token), Emp_id, headers);
+		response.then().statusCode(200).and().time(Matchers.lessThan(5000L));
+
+		if (!response.getBody().asString().isEmpty()) {
+
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("EmployeeName")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("Availability")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("EmployeeId")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("Communication")));
+			response.then().body("", Matchers.everyItem(Matchers.hasKey("RowID")));
 		}
 
 	}
