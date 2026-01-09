@@ -3,6 +3,7 @@ package com.api.base;
 import java.util.Map;
 
 import com.api.models.request.patchUpdateUserProfiledata;
+import com.api.models.response.patchtUpdateProfiletestResponse;
 
 import io.restassured.response.Response;
 
@@ -28,7 +29,7 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetAssessmentTrainingList/MGR");
 
 	}
-	
+
 	public Response getGetAssessmentTrainingListADM(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
@@ -41,7 +42,7 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetAssessmentTrainingList/ADM");
 
 	}
-	
+
 	public Response getGetAssessmentQuestions(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
@@ -54,7 +55,7 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetAssessmentQuestions");
 
 	}
-	
+
 	public Response getTrainingStatusReportMGR(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
@@ -67,7 +68,7 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetTrainingStatusReport/MGR");
 
 	}
-	
+
 	public Response getTrainingStatusReportADM(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
@@ -80,7 +81,7 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetTrainingStatusReport/ADM");
 
 	}
-	
+
 	public Response GetAssessmentTrainingByID(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
@@ -93,7 +94,7 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetAssessmentTrainingByID");
 
 	}
-	
+
 	public Response getGetAssessmentDocumentsList(String token, String EmployeeID, Map<String, Object> val) {
 
 		if (token == null || token.isEmpty()) {
@@ -106,12 +107,12 @@ public class ManageDocument extends BaseService {
 		return getRequest(BASE_PATH + EmployeeID + "/GetAssessmentDocumentsList");
 
 	}
+
 	public Response AddUpdateTraining(Object payload, String EmployeeId, String token) {
 
 		setAuthtoken(token);
 		return postRequest(payload, BASE_PATH + EmployeeId + "/AddUpdateTraining/MGR");
 	}
-
 
 	public Response deleteProfile(String token) {
 		setAuthtoken(token);
@@ -120,10 +121,10 @@ public class ManageDocument extends BaseService {
 
 	}
 
-	public Response patchUpdateProfile(String token, patchUpdateUserProfiledata patchUpdateUserProfiledata) {
+	public Response patchApproved_RejectAssesment(String token,String EmployeeId,Map<String, Object> val ) {
 		setAuthtoken(token);
-
-		return patchRequest(patchUpdateUserProfiledata, BASE_PATH + "/profile");
+		setHeaders(val);
+		return patchRequest(BASE_PATH +EmployeeId+ "/ApprovedAssessmentTrainings");
 
 	}
 

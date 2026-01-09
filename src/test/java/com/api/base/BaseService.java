@@ -149,6 +149,11 @@ public class BaseService { // wrapper for restAssured
 		return requestSpecification.contentType(ContentType.JSON).body(Payload).patch(endpoint);
 
 	}
+	
+	protected Response patchRequest(String endpoint) {
+		return requestSpecification.contentType(ContentType.JSON).patch(endpoint);
+
+	}
 
 	protected Response getRequestWithoutAuth(String endpoint) {
 		return RestAssured.given().baseUri(BASE_URL).when().get(endpoint).then().extract().response();

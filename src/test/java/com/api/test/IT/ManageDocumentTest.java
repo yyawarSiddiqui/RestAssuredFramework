@@ -192,7 +192,7 @@ public class ManageDocumentTest {
 				.body("success", (Matchers.equalTo(true)));
 	}
 
-	@Test(dataProvider = "AllCombinationsWithStatusTrainingReport")// NEED TO RETEST
+	@Test(dataProvider = "AllCombinationsWithStatusTrainingReport") // NEED TO RETEST
 	public void test_GetTrainingStatus(int locationIds, int targetAudienceIds, String statusNames, int deptIDs) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -223,4 +223,53 @@ public class ManageDocumentTest {
 
 	}
 
+	@Test
+	public void test_getGetAssessmentDocumentsList() {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("documentid", 948);
+
+		Response response = manageDocument.getGetAssessmentDocumentsList(Parsetoken(token), Emp_id, map);
+
+		response.then().statusCode(200).body("DocumentDetailId", Matchers.notNullValue())
+				.body("DocumentId", Matchers.notNullValue()).body("DocType", Matchers.notNullValue())
+				.body("DocumentId[0]",Matchers.equalTo(948))
+				.body("DocumentName", Matchers.notNullValue()).body("URL", (Matchers.notNullValue()))
+				.body("IsSubmitted", (Matchers.notNullValue())).body("IsApproved", (Matchers.notNullValue()));
+	}
+	
+	
+
+	@Test
+	public void test_GetAssessmentTrainingByID() {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("documentid", 948);
+
+		Response response = manageDocument.GetAssessmentTrainingByID(Parsetoken(token), Emp_id, map);
+
+		response.then().statusCode(200).body("DocumentDetailId", Matchers.notNullValue())
+				.body("DepartmentID", Matchers.notNullValue()).body("Department", Matchers.notNullValue())
+				.body("DocumentId[0]",Matchers.equalTo(948))
+				.body("TrainingName", Matchers.notNullValue()).body("TrainingStatus", (Matchers.notNullValue()))
+				.body("TrainingLaunchDate", (Matchers.notNullValue())).body("TrainingDeadline", (Matchers.notNullValue()));
+	}
+	
+	
+	@Test
+	public void test_ApprovedAssessmentTrainings() {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("documentid", 948);
+		Response response = manageDocument.patchApproved_RejectAssesment(Parsetoken(token), Emp_id, map);
+		response.then().statusCode(200);
+	}
+
+
 }
+
+
+
+

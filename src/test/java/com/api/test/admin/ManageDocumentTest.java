@@ -1,6 +1,6 @@
 package com.api.test.admin;
 
-import static com.api.constant.Roles.IT;
+import static com.api.constant.Roles.*;
 import static com.api.utils.DateUtility.getDateAfterDays;
 import static com.api.utils.DateUtility.getdatebyInput;
 import static com.api.utils.GetEmpolyeeID.getEmployeeID;
@@ -16,6 +16,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.api.base.ManageDocument;
+import com.api.constant.Roles;
 import com.api.models.request.TrainingDocument;
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.JwtDecoder;
@@ -32,8 +33,8 @@ public class ManageDocumentTest {
 	@BeforeClass
 	public void setup() {
 
-		Emp_id = getEmployeeID(IT);
-		token = AuthTokenProvider.getToken(IT);
+		Emp_id = getEmployeeID(ADMIN);
+		token = AuthTokenProvider.getToken(ADMIN);
 		manageDocument = new ManageDocument();
 		JwtDecoder = new JwtDecoder();
 
@@ -130,7 +131,7 @@ public class ManageDocumentTest {
 		map.put("ToDate", getDateAfterDays(180));
 
 		ManageDocument manageDocument = new ManageDocument();
-		Response response = manageDocument.getGetAssessmentTrainingListMGR(Parsetoken(token), Emp_id, map);
+		Response response = manageDocument.getGetAssessmentTrainingListADM(Parsetoken(token), Emp_id, map);
 
 		response.then().statusCode(200).and().body("documentID", Matchers.everyItem(Matchers.notNullValue()))
 				.body("departmentID", Matchers.everyItem(Matchers.notNullValue()))
@@ -142,5 +143,6 @@ public class ManageDocumentTest {
 				.body("location", Matchers.everyItem(Matchers.notNullValue()));
 	}
 
+	
 	
 }
